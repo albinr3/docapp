@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "HelpDoc",
+    "slug": "HelpDoc",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1DBAB5"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#1DBAB5"
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyD9dz07KGRRgDjIyuWlNjjegX1SugkniZ4"
+        }
+      }
+    },
+    "web": {
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-font"
+    ]
+  }
+}
