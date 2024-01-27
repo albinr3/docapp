@@ -8,7 +8,7 @@ import { LogBox } from 'react-native'
 
 //Ignore all log notifications
 LogBox.ignoreAllLogs();
-
+console.log(process.env.EXPO_PUBLIC_APIKEY)
 SplashScreen.preventAutoHideAsync()
 
 export default function App() {
