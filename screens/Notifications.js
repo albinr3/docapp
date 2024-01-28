@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, FlatList, StyleSheet } from 'react-native'
+import { View, Text, Pressable, Image, FlatList, StyleSheet } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, icons } from "../constants"
@@ -13,7 +13,7 @@ const Notifications = ({ navigation }) => {
   const renderHeader = () => {
     return (
       <View style={styles.headerContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.goBack()}
           style={styles.headerIcon}>
           <Image
@@ -21,20 +21,20 @@ const Notifications = ({ navigation }) => {
             resizeMode='contain'
             style={styles.arrowLeft}
           />
-        </TouchableOpacity>
+        </Pressable>
         <Text style={{
           fontSize: 16,
           fontFamily: "bold",
           color: COLORS.black
         }}>My Notifications</Text>
-        <TouchableOpacity
+        <Pressable
           style={styles.headerIcon}>
           <Image
             source={icons.more}
             resizeMode='contain'
             style={styles.moreIcon}
           />
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }

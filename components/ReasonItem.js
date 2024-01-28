@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Pressable } from 'react-native'
 import React from 'react'
 import { COLORS } from '../constants'
 
@@ -6,7 +6,7 @@ const ReasonItem = ({ checked, onPress, title }) => {
     return (
         <View style={styles.container}>
             <View style={styles.rightContainer}>
-                <TouchableOpacity style={{ marginLeft: 8 }} onPress={onPress}>
+                <Pressable style={{ marginLeft: 8 }} onPress={onPress}>
                     <View
                         style={{
                             width: 20,
@@ -26,7 +26,7 @@ const ReasonItem = ({ checked, onPress, title }) => {
                             borderRadius: 999
                         }} />}
                     </View>
-                </TouchableOpacity>
+                </Pressable>
 
                 <View>
                     <Text style={styles.title}>{title}</Text>

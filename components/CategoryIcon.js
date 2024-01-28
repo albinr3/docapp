@@ -1,19 +1,19 @@
-import { Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { Text, StyleSheet, Pressable, Image } from 'react-native'
 import React from 'react'
 import { COLORS } from '../constants'
 
 const CategoryIcon = ({ icon, name, onPress }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
-      <TouchableOpacity style={styles.categoryIconContainer}>
+    <Pressable onPress={onPress} style={styles.container}>
+      <Pressable style={styles.categoryIconContainer}>
          <Image
            source={icon}
            resizeMode='contain'
            style={styles.categoryIcon}
          />
-      </TouchableOpacity>
+      </Pressable>
       <Text style={styles.categoryText}>{name}</Text>
-    </TouchableOpacity>
+    </Pressable>
   )
 }
 

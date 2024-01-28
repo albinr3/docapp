@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity, TextInput, StyleSheet, StatusBar } from 'react-native'
+import { View, Text, Image, Pressable, TextInput, StyleSheet, StatusBar } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, icons, images } from '../constants'
@@ -103,20 +103,20 @@ const Chat = ({ navigation }) => {
           <StatusBar hidden={true} />
           <View style={styles.contentContainer}>
               <View style={styles.header}>
-                  <TouchableOpacity onPress={() => navigation.goBack()}>
+                  <Pressable onPress={() => navigation.goBack()}>
                       <Image
                           source={icons.arrowLeft}
                           resizeMode="contain"
                           style={styles.headerIcon}
                       />
-                  </TouchableOpacity>
-                  <TouchableOpacity>
+                  </Pressable>
+                  <Pressable>
                       <Image
                           source={icons.more}
                           resizeMode="contain"
                           style={styles.headerIcon}
                       />
-                  </TouchableOpacity>
+                  </Pressable>
               </View>
               <View style={styles.userInfoContainer}>
                   <View style={styles.userInfo}>
@@ -134,16 +134,16 @@ const Chat = ({ navigation }) => {
                       </View>
                   </View>
                   <View style={styles.actions}>
-                      <TouchableOpacity
+                      <Pressable
                           onPress={() => navigation.navigate("Call")}
                           style={styles.actionIcon}>
                           <Feather name="phone" size={24} color={COLORS.primary} />
-                      </TouchableOpacity>
-                      <TouchableOpacity
+                      </Pressable>
+                      <Pressable
                           onPress={() => navigation.navigate("VideoCall")}
                           style={styles.actionIcon}>
                           <Feather name="video" size={24} color={COLORS.primary} />
-                      </TouchableOpacity>
+                      </Pressable>
                   </View>
               </View>
               <View style={styles.chatContainer}>
@@ -158,9 +158,9 @@ const Chat = ({ navigation }) => {
               <View style={styles.inputContainer}>
                   <View style={styles.inputMessageContainer}>
                       <View style={styles.attachmentIconContainer}>
-                          <TouchableOpacity>
+                          <Pressable>
                               <Entypo name="attachment" size={24} color={COLORS.blue2} />
-                          </TouchableOpacity>
+                          </Pressable>
                       </View>
                       <TextInput
                           style={styles.input}
@@ -169,11 +169,11 @@ const Chat = ({ navigation }) => {
                           placeholderTextColor={COLORS.blue2}
                           placeholder="Enter your message..."
                       />
-                      <TouchableOpacity onPress={submitHandler}>
+                      <Pressable onPress={submitHandler}>
                           <View style={styles.sendButton}>
                               <FontAwesome name="send" size={22} color={COLORS.white} />
                           </View>
-                      </TouchableOpacity>
+                      </Pressable>
                   </View>
 
               </View>

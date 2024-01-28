@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet, StatusBar } from 'react-native'
+import { View, Text, Pressable, StyleSheet, StatusBar } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { COLORS, SIZES } from '../constants'
 import * as Animatable from "react-native-animatable"
@@ -21,11 +21,11 @@ const Verification = ({ navigation }) => {
         <View style={{ flex: 1, backgroundColor: COLORS.primary }}>
             <StatusBar hidden={true} />
             <View style={commonStyles.header}>
-                <TouchableOpacity
+                <Pressable
                     onPress={() => navigation.goBack()}
                     style={commonStyles.backIcon}>
                     <MaterialIcons name="keyboard-arrow-left" size={24} color={COLORS.black} />
-                </TouchableOpacity>
+                </Pressable>
                 <Text style={commonStyles.headerTitle}>Verification</Text>
                 <Text style={commonStyles.subHeaderTitle}>We have sent a code to your email</Text>
                 <Text style={commonStyles.subHeaderTitleBold}>example@gmail.com</Text>
@@ -35,11 +35,11 @@ const Verification = ({ navigation }) => {
                 style={commonStyles.footer}>
                 <View style={styles.center}>
                     <Text style={commonStyles.inputHeader}>Code</Text>
-                    <TouchableOpacity
+                    <Pressable
                         onPress={() => console.log("Resend")}
                     >
                         <Text style={{ textDecorationLine: 'underline' }}>Resend</Text>
-                    </TouchableOpacity>
+                    </Pressable>
                 </View>
                 <View style={styles.otpContainer}>
                   <OtpInput 

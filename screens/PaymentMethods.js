@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
+import { View, Text, Pressable, Image, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { ScrollView } from 'react-native-virtualized-view'
@@ -12,7 +12,7 @@ const PaymentMethods = ({ navigation }) => {
   const renderHeader = () => {
     return (
       <View style={styles.headerContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.goBack()}
           style={styles.headerIcon}>
           <Image
@@ -20,20 +20,20 @@ const PaymentMethods = ({ navigation }) => {
             resizeMode='contain'
             style={styles.arrowLeft}
           />
-        </TouchableOpacity>
+        </Pressable>
         <Text style={{
           fontSize: 16,
           fontFamily: "bold",
           color: COLORS.black
         }}>Payment Methods</Text>
-        <TouchableOpacity
+        <Pressable
           style={styles.headerIcon}>
           <Image
             source={icons.more}
             resizeMode='contain'
             style={styles.moreIcon}
           />
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   };
@@ -45,11 +45,11 @@ const PaymentMethods = ({ navigation }) => {
 
     return (
       <View style={styles.btnContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.navigate("AddCard")}
           style={styles.btn}>
           <Text style={styles.btnText}>Next</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }

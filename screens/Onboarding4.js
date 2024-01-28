@@ -8,26 +8,18 @@ import Onboarding1Styles from '../styles/OnboardingStyles';
 import {COLORS, images} from '../constants';
 
 const Onboarding4 = ({navigation}) => {
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(3);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setProgress(prevProgress => {
-        if (prevProgress >= 1) {
-          clearInterval(intervalId);
-          return prevProgress;
-        }
-        return prevProgress + 0.5;
-      });
-    }, 2000);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-  useEffect(() => {
-    if (progress >= 1) {
-      // navigate to the Signup Screen
+    if (progress >= 4) {
       navigation.navigate('Signup');
+    } else {
+      // This should ensure that the dot is marked as active after 2 seconds
+      const timer = setTimeout(() => {
+        setProgress(4);
+      }, 2000);
+
+      return () => clearTimeout(timer);
     }
   }, [progress, navigation]);
 
@@ -57,7 +49,7 @@ const Onboarding4 = ({navigation}) => {
             </Text>
 
             <View style={Onboarding1Styles.dotsContainer}>
-              {progress < 1 && <DotsView progress={progress} numDots={4} />}
+              <DotsView progress={progress} numDots={4} />
             </View>
             <Button
               title="Next"

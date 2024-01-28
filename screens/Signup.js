@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, TouchableOpacity, Modal, FlatList, TextInput, StyleSheet, StatusBar } from 'react-native';
+import { View, Text, Image, Pressable, Modal, FlatList, TextInput, StyleSheet, StatusBar } from 'react-native';
 import { commonStyles } from '../styles/commonStyles';
 import { COLORS, SIZES, icons, illustrations } from '../constants';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -36,7 +36,7 @@ const Signup = ({ navigation }) => {
 
   const renderItem = ({ item }) => {
     return (
-      <TouchableOpacity
+      <Pressable
         style={styles.areaItem}
         onPress={() => {
           setSelectedArea(item);
@@ -48,7 +48,7 @@ const Signup = ({ navigation }) => {
           style={styles.areaFlag}
         />
         <Text style={styles.areaText}>{item.item}</Text>
-      </TouchableOpacity>
+      </Pressable>
     );
   };
 
@@ -59,7 +59,7 @@ const Signup = ({ navigation }) => {
         transparent={true}
         visible={modalVisible}
       >
-        <TouchableOpacity
+        <Pressable
           style={styles.modalOverlay}
           onPress={() => setModalVisible(false)}
         >
@@ -72,14 +72,14 @@ const Signup = ({ navigation }) => {
               style={styles.modalList}
             />
           </View>
-        </TouchableOpacity>
+        </Pressable>
       </Modal>
     );
   };
 
   return (
     <SafeAreaView style={commonStyles.area}>
-      <StatusBar hidden={true} />
+      <StatusBar hidden={false} barStyle='dark-content' backgroundColor={COLORS.white}/>
       <View style={styles.container}>
         <Text style={styles.title}>Registration</Text>
         <Text style={styles.subTitle}>
@@ -95,7 +95,7 @@ const Signup = ({ navigation }) => {
         </View>
 
         <View style={styles.flagButtonContainer}>
-          <TouchableOpacity
+          <Pressable
             style={styles.flagButton}
             onPress={() => setModalVisible(true)}
           >
@@ -117,7 +117,7 @@ const Signup = ({ navigation }) => {
                 {selectedArea?.callingCode}
               </Text>
             </View>
-          </TouchableOpacity>
+          </Pressable>
           <TextInput
             style={styles.phoneNumberInput}
             placeholder="Enter your phone number"
@@ -149,9 +149,9 @@ const Signup = ({ navigation }) => {
           </Text>
           <View style={styles.termsTextContainer}>
             <Text style={styles.termsText}>aggree to our</Text>
-            <TouchableOpacity>
+            <Pressable>
               <Text style={styles.termsLink}> Terms and Conditions.</Text>
-            </TouchableOpacity>
+            </Pressable>
           </View>
         </View>
       </View>

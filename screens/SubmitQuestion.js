@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, TextInput, StyleSheet, Alert } from 'react-native'
+import { View, Text, Pressable, Image, TextInput, StyleSheet, Alert } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from "react-native-safe-area-context"
 import { COLORS, SIZES, icons, illustrations } from "../constants"
@@ -15,14 +15,14 @@ const SubmitQuestion = ({ navigation }) => {
         alignItems: 'center',
         marginTop: 20
       }}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.goBack()}
           style={commonStyles.header1Icon}>
           <Image
             resizeMode='contain'
             source={icons.arrowLeft}
             style={{ height: 24, width: 24, tintColor: COLORS.black }} />
-        </TouchableOpacity>
+        </Pressable>
         <Text style={{ marginLeft: 12, fontSize: 17, fontFamily: "regular" }}>Ask Questions</Text>
       </View>
     )
@@ -62,9 +62,9 @@ const SubmitQuestion = ({ navigation }) => {
           onChangeText={(text) => setQuestion(text)}
           value={question}
           multiline />
-        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+        <Pressable style={styles.button} onPress={handleSubmit}>
           <Text style={styles.buttonText}>Submit</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }

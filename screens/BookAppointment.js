@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native'
+import { View, Text, StyleSheet, Pressable, Image, FlatList } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, SIZES, icons, images } from '../constants'
@@ -12,7 +12,7 @@ const BookAppointment = ({ navigation }) => {
   const renderHeader = () => {
     return (
       <View style={styles.headerContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.goBack()}
           style={styles.headerIcon}>
           <Image
@@ -20,20 +20,20 @@ const BookAppointment = ({ navigation }) => {
             resizeMode='contain'
             style={styles.arrowLeft}
           />
-        </TouchableOpacity>
+        </Pressable>
         <Text style={{
           fontSize: 16,
           fontFamily: "bold",
           color: COLORS.black
         }}>Book Appointment</Text>
-        <TouchableOpacity
+        <Pressable
           style={styles.headerIcon}>
           <Image
             source={icons.more}
             resizeMode='contain'
             style={styles.moreIcon}
           />
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }
@@ -59,12 +59,12 @@ const BookAppointment = ({ navigation }) => {
     const renderHourItem = ({ item }) => {
       const isSelected = item === selectedHour;
       return (
-        <TouchableOpacity
+        <Pressable
           onPress={() => setSelectedHour(item)}
           style={[styles.hourItem, isSelected && styles.selectedHour]}
         >
           <Text style={isSelected ? styles.selectedText : styles.text}>{item}</Text>
-        </TouchableOpacity>
+        </Pressable>
       );
     };
 
@@ -72,11 +72,11 @@ const BookAppointment = ({ navigation }) => {
     const renderDayItem = ({ item }) => {
       const isSelected = item === selectedDay;
       return (
-        <TouchableOpacity
+        <Pressable
           onPress={() => setSelectedDay(item)}
           style={[styles.dayItem, isSelected && styles.selectedDay]}>
           <Text style={isSelected ? styles.selectedText : styles.text}>{item}</Text>
-        </TouchableOpacity>
+        </Pressable>
       );
     };
 
@@ -84,7 +84,7 @@ const BookAppointment = ({ navigation }) => {
       <View>
         <View style={styles.doctorInfoContainer}>
           <View>
-            <TouchableOpacity>
+            <Pressable>
               <Image
                 source={images.doctor1}
                 resizeMode='contain'
@@ -100,7 +100,7 @@ const BookAppointment = ({ navigation }) => {
                   }}
                 />
               </View>
-            </TouchableOpacity>
+            </Pressable>
           </View>
           <View style={{ marginLeft: 16 }}>
             <Text style={styles.doctorName}>Dr. Jonny Wilson</Text>
@@ -178,11 +178,11 @@ const BookAppointment = ({ navigation }) => {
   const renderAppointmentButton = () => {
     return (
       <View style={styles.btnContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.navigate("SelectPackage")}
           style={styles.btn}>
           <Text style={styles.btnText}>Make Appointment</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }

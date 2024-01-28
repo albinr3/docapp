@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList} from 'react-native'
+import { View, Text, StyleSheet, Pressable, Image, FlatList} from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, icons, images, SIZES } from '../constants'
@@ -28,7 +28,7 @@ const DoctorDetails = ({ navigation }) => {
                         icon={icons.share}
                         onPress={() => console.log("Share")}
                     />
-                    <TouchableOpacity
+                    <Pressable
                         onPress={() => setIsFavourite(!isFavourite)}
                         style={styles.heartIconContainer}>
                         <Image
@@ -40,7 +40,7 @@ const DoctorDetails = ({ navigation }) => {
                                 tintColor: isFavourite ? COLORS.red : COLORS.black
                             }}
                         />
-                    </TouchableOpacity>
+                    </Pressable>
                 </View>
             </View>
         )
@@ -60,7 +60,7 @@ const DoctorDetails = ({ navigation }) => {
             <View>
                 <View style={styles.doctorInfoContainer}>
                     <View>
-                        <TouchableOpacity>
+                        <Pressable>
                             <Image
                                 source={images.doctor1}
                                 resizeMode='contain'
@@ -76,7 +76,7 @@ const DoctorDetails = ({ navigation }) => {
                                     }}
                                 />
                             </View>
-                        </TouchableOpacity>
+                        </Pressable>
                     </View>
                     <View style={{
                         marginLeft: 16
@@ -136,11 +136,11 @@ const DoctorDetails = ({ navigation }) => {
                     {showFullDescription ? description : `${description.slice(0, 100)}...`}
                 </Text>
                 {description.length > 100 && (
-                    <TouchableOpacity onPress={toggleDescription}>
+                    <Pressable onPress={toggleDescription}>
                         <Text style={styles.descriptionBtn}>
                             {showFullDescription ? 'Read Less' : 'Read More'}
                         </Text>
-                    </TouchableOpacity>
+                    </Pressable>
                 )}
                 <Text style={styles.h4}>Working Hours</Text>
                 <View style={styles.separateLine2} />
@@ -182,11 +182,11 @@ const DoctorDetails = ({ navigation }) => {
     const renderAppointmentButton = () => {
         return (
             <View style={styles.btnContainer}>
-                <TouchableOpacity
+                <Pressable
                     onPress={() => navigation.navigate("BookAppointmemt")}
                     style={styles.btn}>
                     <Text style={styles.btnText}>Book Appointment</Text>
-                </TouchableOpacity>
+                </Pressable>
             </View>
         )
     }

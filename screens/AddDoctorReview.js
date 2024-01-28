@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, Image, TextInput } from 'react-native'
+import { View, Text, StyleSheet, ImageBackground, Pressable, Image, TextInput } from 'react-native'
 import React, { useState } from 'react'
 import { COLORS, SIZES, icons, images } from '../constants'
 import HeaderIcon from '../components/HeaderIcon'
@@ -51,13 +51,13 @@ const AddDoctorReview = ({ navigation }) => {
     return (
       <View style={styles.contentContainer}>
         <View style={{ paddingHorizontal: 16 }}>
-          <TouchableOpacity
+          <Pressable
             style={{
               alignItems: "center",
               width: "100%",
               top: -36
             }}>
-            <TouchableOpacity>
+            <Pressable>
               <Image
                 source={images.doctor1}
                 resizeMode='contain'
@@ -68,10 +68,10 @@ const AddDoctorReview = ({ navigation }) => {
                 resizeMode='contain'
                 style={styles.doctorAvatarVerified}
               />
-            </TouchableOpacity>
+            </Pressable>
             <Text style={styles.doctorName}>Dr. Jonny Wilson</Text>
             <Text style={styles.doctorPosition}>Dentist</Text>
-          </TouchableOpacity>
+          </Pressable>
 
           <View style={{ alignItems: "center", marginBottom: 16 }}>
             <Text style={styles.experienceTitle}>How was your experience with Jonny?</Text>
@@ -91,12 +91,12 @@ const AddDoctorReview = ({ navigation }) => {
             onChangeText={handleCommentChange}
             value={comment}
           />
-          <TouchableOpacity
+          <Pressable
             onPress={pickImageHandler}
             style={styles.selectPhotoContainer}>
             <Feather name="camera" size={20} color={COLORS.primary} />
             <Text style={styles.selectPhotoText}>add photo</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     )
@@ -107,11 +107,11 @@ const AddDoctorReview = ({ navigation }) => {
   const renderSubmitButton = () => {
     return (
       <View style={styles.btnContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.goBack()}
           style={styles.btn}>
           <Text style={styles.btnText}>Submit</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }

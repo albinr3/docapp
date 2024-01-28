@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity, TextInput, Modal, StyleSheet, FlatList, StatusBar } from 'react-native'
+import { View, Text, Image, Pressable, TextInput, Modal, StyleSheet, FlatList, StatusBar } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, SIZES, FONTS, icons } from '../constants'
@@ -47,7 +47,7 @@ const Search = ({ navigation }) => {
           keyExtractor={item => item.id}
           renderItem=
           {({ item, index }) => (
-            <TouchableOpacity
+            <Pressable
               onPress={() => console.log("Search doctors by keywords")}
               style={{
                 height: 46,
@@ -61,7 +61,7 @@ const Search = ({ navigation }) => {
               }}
               key={index}>
               <Text style={{ color: COLORS.tertiaryBlack, fontSize: 16 }}>{item.keyword}</Text>
-            </TouchableOpacity>
+            </Pressable>
           )}
         />
       </View>
@@ -76,7 +76,7 @@ const Search = ({ navigation }) => {
         <Text style={{ ...FONTS.body3, marginBottom: 6 }}>Suggested Hospitals</Text>
         {
           markers.map((item, index) => (
-            <TouchableOpacity
+            <Pressable
               onPress={() => navigation.navigate("HospitalDetails")}
               key={index}
               style={{
@@ -98,7 +98,7 @@ const Search = ({ navigation }) => {
                   <Text style={{ marginLeft: 8 }}>{item.rating}</Text>
                 </View>
               </View>
-            </TouchableOpacity>
+            </Pressable>
           ))
         }
       </View>
@@ -116,7 +116,7 @@ const Search = ({ navigation }) => {
           keyExtractor={item => item.id}
           renderItem=
           {({ item, index }) => (
-            <TouchableOpacity
+            <Pressable
             onPress={() => navigation.navigate("DoctorDetails")}
              style={{
               flexDirection: 'column',
@@ -139,7 +139,7 @@ const Search = ({ navigation }) => {
               />
               <Text style={{ fontSize: 15, fontFamily: "bold", marginVertical: 4 }}>{item.name}</Text>
               <Text style={{ fontSize: 13, fontFamily: "regular" }}>{item.position}</Text>
-            </TouchableOpacity>
+            </Pressable>
           )}
         />
       </View>
@@ -172,7 +172,7 @@ const Search = ({ navigation }) => {
     }
     return (
       <Modal animationType="slide" transparent={true} visible={modalVisible}>
-        <TouchableOpacity
+        <Pressable
           onPressOut={() => setModalVisible(false)}
           activeOpacity={0.1}
           style={{
@@ -201,7 +201,7 @@ const Search = ({ navigation }) => {
                   paddingVertical: 12
                 }}>
                 <Text style={{ fontSize: 17, fontFamily: "bold" }}>Filter your search</Text>
-                <TouchableOpacity
+                <Pressable
                   onPress={() => setModalVisible(false)}
                   style={commonStyles.header3Icon}
                 >
@@ -213,13 +213,13 @@ const Search = ({ navigation }) => {
                       tintColor: COLORS.black
                     }}
                   />
-                </TouchableOpacity>
+                </Pressable>
               </View>
 
               <View>
                 <Text style={{ fontSize: 13, fontFamily: "regular", marginBottom: 10 }}>SERVICES</Text>
                 <View style={{ flexDirection: "row", flexWrap: 'wrap', marginVertical: 13 }}>
-                  <TouchableOpacity
+                  <Pressable
                     style={[
                       styles.checkboxContainer,
                       selectedService === "Emergency Room" && styles.selectedCheckbox
@@ -227,9 +227,9 @@ const Search = ({ navigation }) => {
                     onPress={() => handleServiceSelection("Emergency Room")}
                   >
                     <Text style={[selectedService === "Emergency Room" && styles.checkboxText]}>Emergency Room</Text>
-                  </TouchableOpacity>
+                  </Pressable>
 
-                  <TouchableOpacity
+                  <Pressable
                     style={[
                       styles.checkboxContainer,
                       selectedService === "Surgery" && styles.selectedCheckbox
@@ -237,9 +237,9 @@ const Search = ({ navigation }) => {
                     onPress={() => handleServiceSelection("Surgery")}
                   >
                     <Text style={[selectedService === "Surgery" && styles.checkboxText]}>Surgery</Text>
-                  </TouchableOpacity>
+                  </Pressable>
 
-                  <TouchableOpacity
+                  <Pressable
                     style={[
                       styles.checkboxContainer,
                       selectedService === "Laboratory" && styles.selectedCheckbox
@@ -251,9 +251,9 @@ const Search = ({ navigation }) => {
                         selectedService === "Laboratory" && styles.checkboxText
                       ]
                     }>Laboratory</Text>
-                  </TouchableOpacity>
+                  </Pressable>
 
-                  <TouchableOpacity
+                  <Pressable
                     style={[
                       styles.checkboxContainer,
                       selectedService === "Radiology" && styles.selectedCheckbox
@@ -265,9 +265,9 @@ const Search = ({ navigation }) => {
                         selectedService === "Radiology" && styles.checkboxText
                       ]
                     }>Radiology</Text>
-                  </TouchableOpacity>
+                  </Pressable>
 
-                  <TouchableOpacity
+                  <Pressable
                     style={[
                       styles.checkboxContainer,
                       selectedService === "Pharmacy" && styles.selectedCheckbox
@@ -279,9 +279,9 @@ const Search = ({ navigation }) => {
                         selectedService === "Pharmacy" && styles.checkboxText
                       ]
                     }>Pharmacy</Text>
-                  </TouchableOpacity>
+                  </Pressable>
 
-                  <TouchableOpacity
+                  <Pressable
                     style={[
                       styles.checkboxContainer,
                       selectedService === "Physical Therapy" && styles.selectedCheckbox
@@ -293,7 +293,7 @@ const Search = ({ navigation }) => {
                         selectedService === "Physical Therapy" && styles.checkboxText
                       ]
                     }>Physical Therapy</Text>
-                  </TouchableOpacity>
+                  </Pressable>
                 </View>
               </View>
 
@@ -302,7 +302,7 @@ const Search = ({ navigation }) => {
                 <Text style={{ fontSize: 13, fontFamily: "regular", marginBottom: 2 }}>DISTANCE</Text>
 
                 <View style={{ flexDirection: "row", flexWrap: "wrap", marginVertical: 13 }}>
-                  <TouchableOpacity
+                  <Pressable
                     style={[
                       styles.checkboxContainer,
                       selectedDistance === "1" && styles.selectedCheckbox
@@ -310,9 +310,9 @@ const Search = ({ navigation }) => {
                     onPress={() => handleDistanceSelection("1")}
                   >
                     <Text style={[selectedDistance === "1" && styles.checkboxText]}>Less than 1 Km</Text>
-                  </TouchableOpacity>
+                  </Pressable>
 
-                  <TouchableOpacity
+                  <Pressable
                     style={[
                       styles.checkboxContainer,
                       selectedDistance === "2" && styles.selectedCheckbox
@@ -320,9 +320,9 @@ const Search = ({ navigation }) => {
                     onPress={() => handleDistanceSelection("2")}
                   >
                     <Text style={[selectedDistance === "2" && styles.checkboxText]}>2 Km</Text>
-                  </TouchableOpacity>
+                  </Pressable>
 
-                  <TouchableOpacity
+                  <Pressable
                     style={[
                       styles.checkboxContainer,
                       selectedDistance === "5" && styles.selectedCheckbox
@@ -334,7 +334,7 @@ const Search = ({ navigation }) => {
                         selectedDistance === "5" && styles.checkboxText
                       ]
                     }>5 Km</Text>
-                  </TouchableOpacity>
+                  </Pressable>
 
                 </View>
 
@@ -343,7 +343,7 @@ const Search = ({ navigation }) => {
               <View>
                 <Text style={{ fontSize: 13, fontFamily: "regular", marginBottom: 10 }}>PRICING</Text>
                 <View style={{ flexDirection: "row", marginVertical: 13 }}>
-                  <TouchableOpacity
+                  <Pressable
                     style={[
                       styles.roundedCheckBoxContainer,
                       selectedPrice === "$" && styles.selectedCheckbox
@@ -351,9 +351,9 @@ const Search = ({ navigation }) => {
                     onPress={() => handlePriceSelection("$")}
                   >
                     <Text style={[selectedPrice === "$" && styles.checkboxText]}>$</Text>
-                  </TouchableOpacity>
+                  </Pressable>
 
-                  <TouchableOpacity
+                  <Pressable
                     style={[
                       styles.roundedCheckBoxContainer,
                       selectedPrice === "$$" && styles.selectedCheckbox
@@ -361,9 +361,9 @@ const Search = ({ navigation }) => {
                     onPress={() => handlePriceSelection("$$")}
                   >
                     <Text style={[selectedPrice === "$$" && styles.checkboxText]}>$$</Text>
-                  </TouchableOpacity>
+                  </Pressable>
 
-                  <TouchableOpacity
+                  <Pressable
                     style={[
                       styles.roundedCheckBoxContainer,
                       selectedPrice === "$$$" && styles.selectedCheckbox
@@ -375,7 +375,7 @@ const Search = ({ navigation }) => {
                         selectedPrice === "$$$" && styles.checkboxText
                       ]
                     }>$$$</Text>
-                  </TouchableOpacity>
+                  </Pressable>
 
 
                 </View>
@@ -385,7 +385,7 @@ const Search = ({ navigation }) => {
                 <Text style={{ fontSize: 13, fontFamily: "regular", marginBottom: 10 }}>RATING</Text>
                 <View style={{ flexDirection: 'row', marginVertical: 13 }}>
                  {selectedStars.map((isSelected, index) => (
-                    <TouchableOpacity
+                    <Pressable
                       key={index}
                       style={styles.starContainer}
                       onPress={() => handleStarPress(index)}
@@ -395,7 +395,7 @@ const Search = ({ navigation }) => {
                         size={24}
                         color={isSelected ? COLORS.primary : COLORS.gray}
                       />
-                    </TouchableOpacity>
+                    </Pressable>
                   ))}
                 </View>
               </View>
@@ -410,7 +410,7 @@ const Search = ({ navigation }) => {
               />
             </View>
           </View>
-        </TouchableOpacity>
+        </Pressable>
       </Modal>
     )
   }
@@ -429,7 +429,7 @@ const Search = ({ navigation }) => {
             flexDirection: 'row',
             alignItems: 'center'
           }}>
-            <TouchableOpacity
+            <Pressable
               onPress={() => setModalVisible(!modalVisible)}
               style={styles.menuContainer}>
               <Image
@@ -439,7 +439,7 @@ const Search = ({ navigation }) => {
                   width: 24,
                 }}
               />
-            </TouchableOpacity>
+            </Pressable>
             <View style={{
               flexDirection: 'column',
               marginLeft: 12
@@ -453,7 +453,7 @@ const Search = ({ navigation }) => {
             </View>
           </View>
 
-          <TouchableOpacity
+          <Pressable
             style={{
               width: 40,
               height: 40,
@@ -465,7 +465,7 @@ const Search = ({ navigation }) => {
             }}
           >
             <Ionicons name="settings-outline" size={24} color="black" />
-          </TouchableOpacity>
+          </Pressable>
         </View>
         {renderSearchBar()}
         <ScrollView

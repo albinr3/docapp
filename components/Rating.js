@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Pressable, StyleSheet } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from '../constants';
 
@@ -18,13 +18,13 @@ const Rating = () => {
       const iconName = i <= rating ? 'star' : 'star-outline';
 
       ratingIcons.push(
-        <TouchableOpacity
+        <Pressable
           key={i}
           onPress={() => handleRating(i)}
           style={styles.iconContainer}
         >
           <Ionicons name={iconName} size={30} color="orange" />
-        </TouchableOpacity>
+        </Pressable>
       );
     }
 

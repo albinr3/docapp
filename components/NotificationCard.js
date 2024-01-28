@@ -1,11 +1,11 @@
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, Image, Pressable, StyleSheet } from 'react-native'
 import React from 'react'
 import { COLORS, SIZES } from '../constants'
 import { getTimeAgo } from '../utils/date'
 
 const NotificationCard = ({ avatar, name, message, time }) => {
     return (
-        <TouchableOpacity style={styles.container}>
+        <Pressable style={styles.container}>
             <View style={{ flexDirection: 'row' }}>
                 <Image
                     source={avatar}
@@ -20,7 +20,7 @@ const NotificationCard = ({ avatar, name, message, time }) => {
                 </View>
             </View>
 
-        </TouchableOpacity>
+        </Pressable>
     )
 }
 

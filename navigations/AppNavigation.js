@@ -61,37 +61,49 @@ import BottomTabNavigation from './BottomTabNavigation'
 const Stack = createNativeStackNavigator()
 
 const AppNavigation = () => {
-    const [isFirstLaunch, setIsFirstLaunch] = useState(null)
-    const [isLoading, setIsLoading] = useState(true)
+    const [isFirstLaunch, setIsFirstLaunch] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        console.log('isFirstLaunch before navigation decision:1', isFirstLaunch);
+
         const checkIfFirstLaunch = async () => {
             try {
-                const value = await AsyncStorage.getItem('alreadyLaunched')
+                const value = await AsyncStorage.getItem('alreadyLaunched');
+                
                 if (value === null) {
-                    await AsyncStorage.setItem('alreadyLaunched', 'true')
-                    setIsFirstLaunch(true)
+                    await AsyncStorage.setItem('alreadyLaunched', 'true');
+                    setIsFirstLaunch(true);
                 } else {
-                    setIsFirstLaunch(false)
+                    
+                    setIsFirstLaunch(false);
                 }
             } catch (error) {
-                setIsFirstLaunch(false)
+                setIsFirstLaunch(false);
+                console.log(error);
             }
-            setIsLoading(false) // Set loading state to false once the check is complete
+            setIsLoading(false); // Set loading state to false once the check is complete
         }
 
-        checkIfFirstLaunch()
+        checkIfFirstLaunch();
+        console.log('isFirstLaunch before navigation decision:2', isFirstLaunch);
+
     }, [])
-
+   
     if (isLoading) {
-        return null // Render a loader or any other loading state component
-    }
+        console.log('isFirstLaunch before navigation decision:4', isFirstLaunch);
 
+        return null // Render a loader or any other loading state component
+        
+    }
+    console.log('isFirstLaunch before navigation decision:3', isFirstLaunch);
+
+   
     return (
         <NavigationContainer>
             <Stack.Navigator 
                 screenOptions={{ headerShown: false }}
-                initialRouteName={isFirstLaunch ? 'Onboarding1' : 'Onboarding1'}>
+                initialRouteName={isFirstLaunch ? 'Onboarding1' : 'Login'}>
                 <Stack.Screen name="Onboarding1" component={Onboarding1}/>
                 <Stack.Screen name="Onboarding2" component={Onboarding2}/>
                 <Stack.Screen name="Onboarding3" component={Onboarding3}/>

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { View, Text, StyleSheet, Pressable, Image } from 'react-native'
 import React, { useState } from 'react'
 import { COLORS } from '../constants'
 import { AntDesign, FontAwesome, Ionicons } from "@expo/vector-icons"
@@ -9,14 +9,14 @@ const HospitalCard = ({ image, rating, name, distance, time }) => {
     const navigation = useNavigation();
 
     return (
-        <TouchableOpacity
+        <Pressable
             onPress={() => navigation.navigate("HospitalDetails")}
             style={styles.container}>
-            <TouchableOpacity
+            <Pressable
                 onPress={() => setIsLiked(!isLiked)}
                 style={styles.likeContainer}>
                 <Ionicons name={isLiked ? "heart-sharp" : "heart-outline"} size={24} color={COLORS.red} />
-            </TouchableOpacity>
+            </Pressable>
             <View style={styles.reviewContainer}>
                 <FontAwesome name="star" size={20} color="orange" />
                 <Text style={styles.ratingNum}>{rating}</Text>
@@ -37,7 +37,7 @@ const HospitalCard = ({ image, rating, name, distance, time }) => {
                     <Text style={styles.subtitle}>{time} - {distance}Km</Text>
                 </View>
             </View>
-        </TouchableOpacity>
+        </Pressable>
     )
 }
 

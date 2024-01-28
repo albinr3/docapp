@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, LayoutAnimation, StyleSheet } from 'react-native'
+import { View, Text, Pressable, Image, LayoutAnimation, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, SIZES, icons } from '../constants'
@@ -17,7 +17,7 @@ const Faqs = ({ navigation }) => {
         alignItems: 'center',
         marginTop: 20,
       }}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.goBack()}
           style={commonStyles.header1Icon}
         >
@@ -26,7 +26,7 @@ const Faqs = ({ navigation }) => {
             source={icons.arrowLeft}
             style={{ height: 24, width: 24, tintColor: COLORS.black }}
           />
-        </TouchableOpacity>
+        </Pressable>
         <Text style={{ marginLeft: 12, fontSize: 17, fontFamily: "regular" }}>FAQS</Text>
       </View>
     )
@@ -98,12 +98,12 @@ const Faqs = ({ navigation }) => {
       <View style={styles.container}>
         {faqs.map((faq, index) => (
           <View key={index} style={styles.faqContainer}>
-            <TouchableOpacity onPress={() => toggleExpand(index)} activeOpacity={0.8}>
+            <Pressable onPress={() => toggleExpand(index)} activeOpacity={0.8}>
               <View style={styles.questionContainer}>
                 <Text style={styles.question}>{faq.question}</Text>
                 <Text style={styles.icon}>{expanded === index ? '-' : '+'}</Text>
               </View>
-            </TouchableOpacity>
+            </Pressable>
             {expanded === index && <Text style={styles.answer}>{faq.answer}</Text>}
           </View>
         ))}

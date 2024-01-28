@@ -1,17 +1,17 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { View, Text, StyleSheet, Pressable, Image } from 'react-native'
 import React from 'react'
 import { COLORS } from '../constants'
 
 const SpecialityCard = ({ icon, name }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.specialityIconContainer}>
+      <Pressable style={styles.specialityIconContainer}>
          <Image
            source={icon}
            resizeMode='contain'
            style={styles.specialityIcon}
          />
-      </TouchableOpacity>
+      </Pressable>
       <Text style={styles.specialityText}>{name.slice(0, 5)}...</Text>
     </View>
   )

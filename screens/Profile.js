@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
+import { View, Text, Pressable, Image, StyleSheet } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation } from '@react-navigation/native'
@@ -19,7 +19,7 @@ const Profile = () => {
                 marginTop: 20,
             }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <TouchableOpacity
+                    <Pressable
                         onPress={() => navigation.goBack()}
                         style={commonStyles.header1Icon}
                     >
@@ -28,10 +28,10 @@ const Profile = () => {
                             source={icons.arrowLeft}
                             style={{ height: 24, width: 24, tintColor: COLORS.black }}
                         />
-                    </TouchableOpacity>
+                    </Pressable>
                     <Text style={{ marginLeft: 12, fontSize: 17, fontFamily: 'regular' }}>Profile</Text>
                 </View>
-                <TouchableOpacity
+                <Pressable
                     onPress={() => console.log("Pressed")}
                     style={commonStyles.header1Icon}
                 >
@@ -40,7 +40,7 @@ const Profile = () => {
                         source={icons.more}
                         style={{ height: 24, width: 24, tintColor: COLORS.black }}
                     />
-                </TouchableOpacity>
+                </Pressable>
             </View>
         )
     }
@@ -75,7 +75,7 @@ const Profile = () => {
         return (
             <View style={{ flexDirection: 'column' }}>
                 <View style={styles.container}>
-                    <TouchableOpacity
+                    <Pressable
                         onPress={() => navigation.navigate("PersonalProfile")}
                         style={styles.subContainer}
                     >
@@ -91,8 +91,8 @@ const Profile = () => {
                                 style={styles.iconRight}
                             />
                         </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity
+                    </Pressable>
+                    <Pressable
                         onPress={() => navigation.navigate("Address")}
                         style={styles.subContainer}
                     >
@@ -108,8 +108,8 @@ const Profile = () => {
                                 style={styles.iconRight}
                             />
                         </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity
+                    </Pressable>
+                    <Pressable
                         onPress={() => navigation.navigate("PaymentMethod")}
                         style={styles.subContainer}
                     >
@@ -125,8 +125,8 @@ const Profile = () => {
                                 style={styles.iconRight}
                             />
                         </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity
+                    </Pressable>
+                    <Pressable
                         onPress={() => navigation.navigate("MyBookings")}
                         style={styles.subContainer}
                     >
@@ -142,11 +142,11 @@ const Profile = () => {
                                 style={styles.iconRight}
                             />
                         </View>
-                    </TouchableOpacity>
+                    </Pressable>
                 </View>
 
                 <View style={styles.container}>
-                    <TouchableOpacity
+                    <Pressable
                         onPress={() => navigation.navigate("Favourite")}
                         style={styles.subContainer}
                     >
@@ -162,8 +162,8 @@ const Profile = () => {
                                 style={styles.iconRight}
                             />
                         </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity
+                    </Pressable>
+                    <Pressable
                         onPress={() => navigation.navigate("History")}
                         style={styles.subContainer}
                     >
@@ -179,8 +179,8 @@ const Profile = () => {
                                 style={styles.iconRight}
                             />
                         </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity
+                    </Pressable>
+                    <Pressable
                         onPress={() => navigation.navigate("Notifications")}
                         style={styles.subContainer}
                     >
@@ -196,12 +196,12 @@ const Profile = () => {
                                 style={styles.iconRight}
                             />
                         </View>
-                    </TouchableOpacity>
+                    </Pressable>
 
                 </View>
 
                 <View style={styles.container}>
-                    <TouchableOpacity
+                    <Pressable
                         onPress={() => navigation.navigate("Faqs")}
                         style={styles.subContainer}
                     >
@@ -217,8 +217,8 @@ const Profile = () => {
                                 style={styles.iconRight}
                             />
                         </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity
+                    </Pressable>
+                    <Pressable
                         onPress={() => navigation.navigate("Settings")}
                         style={styles.subContainer}
                     >
@@ -234,11 +234,11 @@ const Profile = () => {
                                 style={styles.iconRight}
                             />
                         </View>
-                    </TouchableOpacity>
+                    </Pressable>
                 </View>
 
                 <View style={[styles.container, { marginBottom: 100 }]}>
-                    <TouchableOpacity
+                    <Pressable
                         onPress={() => console.log("Log out")}
                         style={styles.subContainer}
                     >
@@ -254,7 +254,7 @@ const Profile = () => {
                                 style={styles.iconRight}
                             />
                         </View>
-                    </TouchableOpacity>
+                    </Pressable>
                 </View>
             </View>
         )

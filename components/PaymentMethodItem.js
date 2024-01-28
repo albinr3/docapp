@@ -1,10 +1,10 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, Pressable } from 'react-native'
 import React from 'react'
 import { COLORS } from '../constants'
 
 const PaymentMethodItem = ({ checked, onPress, title, icon }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
+    <Pressable onPress={onPress} style={styles.container}>
        <View style={styles.rightContainer}>
                 <Image
                   source={icon}
@@ -16,7 +16,7 @@ const PaymentMethodItem = ({ checked, onPress, title, icon }) => {
             </View>     
        </View>
        <View style={styles.leftContainer}>
-            <TouchableOpacity style={{marginLeft: 8}} onPress={onPress}>
+            <Pressable style={{marginLeft: 8}} onPress={onPress}>
                 <View
                 style={{
                     width: 20,
@@ -36,10 +36,10 @@ const PaymentMethodItem = ({ checked, onPress, title, icon }) => {
                     borderRadius: 999
                     }}/> }
                 </View>
-            </TouchableOpacity>
+            </Pressable>
 
        </View>
-    </TouchableOpacity>
+    </Pressable>
   )
 }
 

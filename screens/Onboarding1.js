@@ -13,18 +13,20 @@ const Onboarding1 = ({navigation}) => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setProgress(prevProgress => {
-        if (prevProgress >= 1) {
-          clearInterval(intervalId);
+        if (prevProgress < 1) {
+          return prevProgress + 1;
+        } else {
+          clearInterval(intervalId); // Detener el intervalo cuando progress llega a 1
           return prevProgress;
         }
-        return prevProgress + 0.5;
       });
     }, 2000);
 
-    return () => clearInterval(intervalId);
+    return () => intervalId;
   }, []);
 
   useEffect(() => {
+    console.log(progress)
     if (progress >= 1) {
       // navigate to the Onboarding2 Screen
       navigation.navigate('Onboarding2');
@@ -56,7 +58,7 @@ const Onboarding1 = ({navigation}) => {
             </Text>
 
             <View style={Onboarding1Styles.dotsContainer}>
-              {progress < 1 && <DotsView progress={progress} numDots={4} />}
+              <DotsView progress={progress} numDots={4} />
             </View>
             <Button
               title="Next"

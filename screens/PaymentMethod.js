@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, StyleSheet, FlatList, StatusBar } from 'react-native'
+import { View, Text, Pressable, Image, StyleSheet, FlatList, StatusBar } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, SIZES, FONTS, icons, images } from '../constants'
@@ -12,10 +12,10 @@ const PaymentCard = ({ cardImage, isSelected, onSelect, cardName }) => {
 
   return (
     <View style={styles.cardContainer}>
-      <TouchableOpacity onPress={onSelect} style={cardStyle}>
+      <Pressable onPress={onSelect} style={cardStyle}>
         <Image source={cardImage} style={styles.cardImage} />
 
-      </TouchableOpacity>
+      </Pressable>
       <Text style={styles.cardText}>{cardName}</Text>
     </View>
 
@@ -32,7 +32,7 @@ const PaymentMethod = ({ navigation }) => {
         alignItems: 'center',
         marginTop: 20,
       }}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.goBack()}
           style={commonStyles.header1Icon}
         >
@@ -41,7 +41,7 @@ const PaymentMethod = ({ navigation }) => {
             source={icons.arrowLeft}
             style={{ height: 24, width: 24, tintColor: COLORS.black }}
           />
-        </TouchableOpacity>
+        </Pressable>
         <Text style={{ marginLeft: 12, fontSize: 17, fontFamily: "regular" }}>Payment Method</Text>
       </View>
     )
@@ -75,7 +75,7 @@ const PaymentMethod = ({ navigation }) => {
           keyExtractor={(item) => item.id}
           horizontal
         />
-        <TouchableOpacity
+        <Pressable
           onPress={() => console.log("Pressed")}
           style={{
             width: SIZES.width - 32,
@@ -111,8 +111,8 @@ const PaymentMethod = ({ navigation }) => {
               }}
             />
           </View>
-        </TouchableOpacity>
-        <TouchableOpacity
+        </Pressable>
+        <Pressable
           onPress={() => navigation.navigate("AddNewPaymentMethod")}
           style={{
             height: 62,
@@ -132,7 +132,7 @@ const PaymentMethod = ({ navigation }) => {
             color: COLORS.primary,
             marginLeft: 12
           }}>ADD NEW</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }

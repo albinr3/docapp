@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { View, Text, StyleSheet, Pressable, Image } from 'react-native'
 import React, { useState } from 'react'
 import { COLORS, FONTS, SIZES, icons, images } from '../constants'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -11,7 +11,7 @@ const Call = ({ navigation }) => {
         <SafeAreaView style={styles.area}>
             <View style={styles.container}>
                 <View style={styles.headerContainer}>
-                    <TouchableOpacity
+                    <Pressable
                         onPress={() => navigation.goBack()}
                         style={styles.backIconContainer}>
                         <Image
@@ -19,7 +19,7 @@ const Call = ({ navigation }) => {
                             resizeMode='contain'
                             style={styles.backIcon}
                         />
-                    </TouchableOpacity>
+                    </Pressable>
                 </View>
                 <View style={styles.callerProfileContainer}>
                     <Text style={{
@@ -39,26 +39,26 @@ const Call = ({ navigation }) => {
                 </View>
                 <View style={styles.footerContainer}>
                     <View style={styles.actionContainer}>
-                        <TouchableOpacity
+                        <Pressable
                             style={styles.btnContainer}
                             onPress={() => navigation.navigate("Chat")}
                         >
                             <Ionicons name="chatbubble-ellipses-outline" size={24} color="black" />
-                        </TouchableOpacity>
-                        <TouchableOpacity
+                        </Pressable>
+                        <Pressable
                             style={styles.btnContainer}
                             onPress={() => setIsMute(!isMute)}
                         >
                             <Ionicons name={isMute ? "mic-off-outline" : "mic-outline"} size={24} color="black" />
-                        </TouchableOpacity>
+                        </Pressable>
                     </View>
-                    <TouchableOpacity
+                    <Pressable
                         style={styles.callContainer}>
                         <Text style={styles.btnText}>End Call</Text>
-                        <TouchableOpacity style={styles.callBtn}>
+                        <Pressable style={styles.callBtn}>
                             <MaterialCommunityIcons name="phone-hangup-outline" size={24} color={COLORS.white} />
-                        </TouchableOpacity>
-                    </TouchableOpacity>
+                        </Pressable>
+                    </Pressable>
                 </View>
             </View>
         </SafeAreaView>

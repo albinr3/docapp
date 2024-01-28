@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity, FlatList, StyleSheet } from 'react-native'
+import { View, Text, Image, Pressable, FlatList, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, icons } from '../constants'
@@ -14,7 +14,7 @@ const AllHospitals = ({ navigation }) => {
   const renderHeader = () => {
     return (
       <View style={styles.headerContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.goBack()}
           style={styles.headerIcon}>
           <Image
@@ -22,20 +22,20 @@ const AllHospitals = ({ navigation }) => {
             resizeMode='contain'
             style={styles.arrowLeft}
           />
-        </TouchableOpacity>
+        </Pressable>
         <Text style={{
           fontSize: 16,
           fontFamily: "bold",
           color: COLORS.black
         }}>Nearby Hospitals</Text>
-        <TouchableOpacity
+        <Pressable
           style={styles.headerIcon}>
           <Image
             source={icons.more}
             resizeMode='contain'
             style={styles.moreIcon}
           />
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }
@@ -73,9 +73,9 @@ const AllHospitals = ({ navigation }) => {
       };
 
       return (
-        <TouchableOpacity style={itemStyle} onPress={() => onPress(item.id)}>
+        <Pressable style={itemStyle} onPress={() => onPress(item.id)}>
           <Text style={{ color: selected ? COLORS.white : COLORS.primary }}>{item.keyword}</Text>
-        </TouchableOpacity>
+        </Pressable>
       );
     };
 

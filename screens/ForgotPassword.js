@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useReducer, useCallback } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, StatusBar } from 'react-native';
+import { View, Text, Image, StyleSheet, Pressable, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS, SIZES, illustrations } from "../constants";
 import { commonStyles } from '../styles/commonStyles';
@@ -74,11 +74,11 @@ const ForgotPassword = ({ navigation }) => {
 
         <View style={styles.signUpTextContainer}>
           <Text style={styles.signUpText}>Don’t have an account?</Text>
-          <TouchableOpacity
+          <Pressable
             onPress={() => navigation.navigate("Welcome")}
           >
             <Text style={styles.signUpLink}>{" "}Signup</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     </SafeAreaView>

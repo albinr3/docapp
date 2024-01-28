@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, ImageBackground, StatusBar } from 'react-native'
+import { View, Text, Pressable, Image, ImageBackground, StatusBar } from 'react-native'
 import React, { useState, useReducer, useEffect, useCallback } from 'react'
 import { COLORS, FONTS, images, icons } from '../constants'
 import Checkbox from 'expo-checkbox'
@@ -60,7 +60,7 @@ const Login = ({ navigation }) => {
 
     return (
         <View style={{ flex: 1, backgroundColor: COLORS.primary }}>
-            <StatusBar style="light" />
+            <StatusBar hidden={false} style="light" backgroundColor={COLORS.primary}/>
             <View style={commonStyles.header}>
                 <Text style={commonStyles.headerTitle}>Log In</Text>
                 <Text
@@ -99,11 +99,11 @@ const Login = ({ navigation }) => {
                         />
                         <Text style={{ ...FONTS.body4 }}>Remenber me</Text>
                     </View>
-                    <TouchableOpacity
+                    <Pressable
                         onPress={() => navigation.navigate("ForgotPassword")}
                     >
                         <Text style={{ ...FONTS.body4, color: COLORS.primary }}>Forgot Password ?</Text>
-                    </TouchableOpacity>
+                    </Pressable>
                 </View>
 
                 <Button
@@ -115,16 +115,16 @@ const Login = ({ navigation }) => {
                 />
                 <View style={commonStyles.center}>
                     <Text style={{ ...FONTS.body4, color: COLORS.black }}>Don't have an account?{" "}</Text>
-                    <TouchableOpacity
+                    <Pressable
                         onPress={() => navigation.navigate("Signup")}
                     >
                         <Text style={{ ...FONTS.body4, color: COLORS.primary }}>SIGN UP</Text>
-                    </TouchableOpacity>
+                    </Pressable>
                 </View>
                 <Text style={{ ...FONTS.body4, color: COLORS.black, textAlign: 'center' }}>Or</Text>
 
                 <View style={commonStyles.socialContainer}>
-                <TouchableOpacity
+                <Pressable
                         onPress={googleAuthHandler}
                         style={commonStyles.socialIconContainer}
                     >
@@ -133,8 +133,8 @@ const Login = ({ navigation }) => {
                             resizeMode="contain"
                             style={commonStyles.socialLogo}
                         />
-                    </TouchableOpacity>
-                    <TouchableOpacity
+                    </Pressable>
+                    <Pressable
                         onPress={twitterAuthHandler}
                         style={commonStyles.socialIconContainer}
                     >
@@ -143,8 +143,8 @@ const Login = ({ navigation }) => {
                             resizeMode="contain"
                             style={commonStyles.socialLogo}
                         />
-                    </TouchableOpacity>
-                    <TouchableOpacity
+                    </Pressable>
+                    <Pressable
                         onPress={facebookAuthHandler}
                         style={commonStyles.socialIconContainer}
                     >
@@ -153,7 +153,7 @@ const Login = ({ navigation }) => {
                             resizeMode="contain"
                             style={commonStyles.socialLogo}
                         />
-                    </TouchableOpacity>
+                    </Pressable>
                 </View>
             </Animatable.View>
         </View>

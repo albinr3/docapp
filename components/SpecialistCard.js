@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
+import { View, Text, Pressable, StyleSheet, Image } from 'react-native'
 import React, { useState } from 'react'
 import { COLORS } from '../constants'
 import { MaterialIcons, Ionicons } from "@expo/vector-icons"
@@ -11,10 +11,10 @@ const SpecialistCard = ({ image, type, name, position, rating, numReviews }) => 
 
 
     return (
-        <TouchableOpacity 
+        <Pressable 
         onPress={() =>navigation.navigate("DoctorDetails")}
         style={styles.container}>
-            <TouchableOpacity
+            <Pressable
                 onPress={() => setIsFavourite(!isFavourite)}
                 style={styles.likeContainer}
             >
@@ -23,7 +23,7 @@ const SpecialistCard = ({ image, type, name, position, rating, numReviews }) => 
                     size={24}
                     color={isFavourite ? COLORS.red : "gray"}
                 />
-            </TouchableOpacity>
+            </Pressable>
             <View style={{ flexDirection: 'row', marginBottom: 10 }}>
                 <Image
                     source={image}
@@ -62,10 +62,10 @@ const SpecialistCard = ({ image, type, name, position, rating, numReviews }) => 
 
                 </View>
             </View>
-            <TouchableOpacity style={styles.btnContainer}>
+            <Pressable style={styles.btnContainer}>
                 <Text style={styles.btnText}>Make Appointment</Text>
-            </TouchableOpacity>
-        </TouchableOpacity>
+            </Pressable>
+        </Pressable>
     )
 }
 

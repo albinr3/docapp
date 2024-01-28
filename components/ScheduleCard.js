@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, Pressable } from 'react-native'
 import React from 'react'
 import { COLORS, SIZES, icons } from '../constants'
 import { AntDesign } from "@expo/vector-icons"
@@ -31,13 +31,13 @@ const ScheduleCard = ({ doctorName, doctorAvatar, type, date, starHour, endHour 
                         }}>{type}</Text>
                     </View>
                 </View>
-                <TouchableOpacity style={styles.callContainer}>
+                <Pressable style={styles.callContainer}>
                     <Image
                         source={icons.phone}
                         resizeMode='contain'
                         style={styles.phoneIcon}
                     />
-                </TouchableOpacity>
+                </Pressable>
             </View>
             <View style={styles.scheduleContainer}>
                 <View style={styles.dateContainer}>

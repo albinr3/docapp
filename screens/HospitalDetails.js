@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, Image, useWindowDimensions, FlatList } from 'react-native'
+import { View, Text, StyleSheet, ImageBackground, Pressable, Image, useWindowDimensions, FlatList } from 'react-native'
 import React, { useState } from 'react'
 import { COLORS, SIZES, icons, images } from '../constants'
 import HeaderIcon from '../components/HeaderIcon'
@@ -195,7 +195,7 @@ const HospitalDetails = ({ navigation }) => {
                             icon={icons.share}
                             onPress={() => console.log("Share")}
                         />
-                        <TouchableOpacity
+                        <Pressable
                             onPress={() => setIsFavourite(!isFavourite)}
                             style={styles.heartIconContainer}>
                             <Image
@@ -207,7 +207,7 @@ const HospitalDetails = ({ navigation }) => {
                                     tintColor: isFavourite ? COLORS.red : COLORS.black
                                 }}
                             />
-                        </TouchableOpacity>
+                        </Pressable>
                     </View>
                 </View>
             </ImageBackground>
@@ -222,7 +222,7 @@ const HospitalDetails = ({ navigation }) => {
         return (
             <View style={styles.contentContainer}>
                 <View style={{ paddingHorizontal: 16 }}>
-                    <TouchableOpacity
+                    <Pressable
                         onPress={() => navigation.navigate("AddHospitalReview")}
                         style={{
                             alignItems: "center",
@@ -233,7 +233,7 @@ const HospitalDetails = ({ navigation }) => {
                             <FontAwesome name="star" size={16} color={COLORS.white} />
                             <Text style={styles.rating}>4.8 (1k+ reviews) </Text>
                         </View>
-                    </TouchableOpacity>
+                    </Pressable>
                     <View>
                         <Text style={styles.name}>Senerity Wellness Clinic</Text>
                         <Text style={styles.subname}>Dental, Skin Care, Eye Care</Text>
@@ -286,11 +286,11 @@ const HospitalDetails = ({ navigation }) => {
     const renderAppointmentButton = () => {
         return (
             <View style={styles.btnContainer}>
-                <TouchableOpacity 
+                <Pressable 
                   onPress={()=>navigation.navigate("BookAppointmemt")}
                   style={styles.btn}>
                     <Text style={styles.btnText}>Book Appointment</Text>
-                </TouchableOpacity>
+                </Pressable>
             </View>
         )
     }

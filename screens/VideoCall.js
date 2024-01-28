@@ -1,4 +1,4 @@
-import { View, Text, ImageBackground, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { View, Text, ImageBackground, StyleSheet, Pressable, Image } from 'react-native'
 import React, { useState } from 'react'
 import { images } from '../constants'
 import { Ionicons, Feather } from "@expo/vector-icons"
@@ -15,13 +15,13 @@ const VideoCall = ({ navigation }) => {
       source={images.doctor3}>
       <View style={styles.bottomContainer}>
         <View style={styles.actionContainer}>
-          <TouchableOpacity
+          <Pressable
             style={styles.btnContainer}
             onPress={() => setIsMute(!isMute)}
           >
             <Ionicons name={isMute ? "mic-off-outline" : "mic-outline"} size={24} color="black" />
-          </TouchableOpacity>
-          <TouchableOpacity
+          </Pressable>
+          <Pressable
             style={[styles.btnContainer, { backgroundColor: COLORS.primary }]}
             onPress={() => {
               setIsVideoOff(!isVideoOff);
@@ -30,8 +30,8 @@ const VideoCall = ({ navigation }) => {
             }
           >
             <Feather name={isVideoOff ? "video-off" : "video"} size={24} color="white" />
-          </TouchableOpacity>
-          <TouchableOpacity
+          </Pressable>
+          <Pressable
             style={[styles.btnContainer, { backgroundColor: COLORS.red }]}
             onPress={() => {
               setIsCallOff(!isCallOff)
@@ -39,7 +39,7 @@ const VideoCall = ({ navigation }) => {
             }}
           >
             <Feather name={isCallOff ? "phone-off" : "phone"} size={20} color="white" />
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
       <View style={styles.callerContainer}>

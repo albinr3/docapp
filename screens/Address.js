@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
+import { View, Text, Pressable, Image, StyleSheet } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, SIZES, icons } from "../constants"
@@ -19,7 +19,7 @@ const Address = ({ navigation }) => {
                 marginTop: 20,
             }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <TouchableOpacity
+                    <Pressable
                         onPress={() => navigation.goBack()}
                         style={commonStyles.header1Icon}
                     >
@@ -28,7 +28,7 @@ const Address = ({ navigation }) => {
                             source={icons.arrowLeft}
                             style={{ height: 24, width: 24, tintColor: COLORS.black }}
                         />
-                    </TouchableOpacity>
+                    </Pressable>
                     <Text style={{ marginLeft: 12, fontSize: 17, fontFamily: 'regular' }}>Add New Address</Text>
                 </View>
 
@@ -64,16 +64,16 @@ const Address = ({ navigation }) => {
                                 alignItems: 'center'
                             }}
                         >
-                            <TouchableOpacity>
+                            <Pressable>
                                 <Feather name="edit" size={18} color={COLORS.primary} />
-                            </TouchableOpacity>
-                            <TouchableOpacity
+                            </Pressable>
+                            <Pressable
                                 style={{
                                     marginLeft: 4
                                 }}
                             >
                                 <MaterialCommunityIcons name="delete-outline" size={22} color={COLORS.primary} />
-                            </TouchableOpacity>
+                            </Pressable>
                         </View>
 
                     </View>
@@ -103,16 +103,16 @@ const Address = ({ navigation }) => {
                                 alignItems: 'center'
                             }}
                         >
-                            <TouchableOpacity>
+                            <Pressable>
                                 <Feather name="edit" size={18} color={COLORS.primary} />
-                            </TouchableOpacity>
-                            <TouchableOpacity
+                            </Pressable>
+                            <Pressable
                                 style={{
                                     marginLeft: 4
                                 }}
                             >
                                 <MaterialCommunityIcons name="delete-outline" size={22} color={COLORS.primary} />
-                            </TouchableOpacity>
+                            </Pressable>
                         </View>
 
                     </View>

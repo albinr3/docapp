@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
+import { View, Text, Pressable, Image, StyleSheet } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { ScrollView } from 'react-native-virtualized-view'
@@ -12,7 +12,7 @@ const ReviewSummary = ({ navigation }) => {
   const renderHeader = () => {
     return (
       <View style={styles.headerContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.goBack()}
           style={styles.headerIcon}>
           <Image
@@ -20,20 +20,20 @@ const ReviewSummary = ({ navigation }) => {
             resizeMode='contain'
             style={styles.arrowLeft}
           />
-        </TouchableOpacity>
+        </Pressable>
         <Text style={{
           fontSize: 16,
           fontFamily: "bold",
           color: COLORS.black
         }}>Review Summary</Text>
-        <TouchableOpacity
+        <Pressable
           style={styles.headerIcon}>
           <Image
             source={icons.more}
             resizeMode='contain'
             style={styles.moreIcon}
           />
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   };
@@ -47,7 +47,7 @@ const ReviewSummary = ({ navigation }) => {
       <View>
         <View style={styles.doctorInfoContainer}>
           <View>
-            <TouchableOpacity>
+            <Pressable>
               <Image
                 source={images.doctor1}
                 resizeMode='contain'
@@ -63,7 +63,7 @@ const ReviewSummary = ({ navigation }) => {
                   }}
                 />
               </View>
-            </TouchableOpacity>
+            </Pressable>
           </View>
           <View style={{
             marginLeft: 16
@@ -141,9 +141,9 @@ const ReviewSummary = ({ navigation }) => {
             <Text style={[styles.reviewItemLeft, { marginLeft: 6 }]}>Cash</Text>
           </View>
 
-          <TouchableOpacity onPress={() => navigation.navigate("PaymentMethods")}>
+          <Pressable onPress={() => navigation.navigate("PaymentMethods")}>
             <Text style={[styles.reviewItemRight, { color: COLORS.primary }]}>Change</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     )
@@ -156,11 +156,11 @@ const ReviewSummary = ({ navigation }) => {
 
     return (
       <View style={styles.btnContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.navigate("BookSuccess")}
           style={styles.btn}>
           <Text style={styles.btnText}>Next</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }

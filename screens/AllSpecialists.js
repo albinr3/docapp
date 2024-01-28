@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native'
+import { View, Text, StyleSheet, Pressable, Image, FlatList } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, icons } from '../constants'
@@ -13,7 +13,7 @@ const AllSpecialists = ({ navigation }) => {
     const renderHeader = () => {
         return (
             <View style={styles.headerContainer}>
-                <TouchableOpacity
+                <Pressable
                     onPress={() => navigation.goBack()}
                     style={styles.headerIcon}>
                     <Image
@@ -21,20 +21,20 @@ const AllSpecialists = ({ navigation }) => {
                         resizeMode='contain'
                         style={styles.arrowLeft}
                     />
-                </TouchableOpacity>
+                </Pressable>
                 <Text style={{
                     fontSize: 16,
                     fontFamily: "bold",
                     color: COLORS.black
                 }}>Top Specialists</Text>
-                <TouchableOpacity
+                <Pressable
                     style={styles.headerIcon}>
                     <Image
                         source={icons.more}
                         resizeMode='contain'
                         style={styles.moreIcon}
                     />
-                </TouchableOpacity>
+                </Pressable>
             </View>
         )
     }
@@ -72,9 +72,9 @@ const AllSpecialists = ({ navigation }) => {
             };
 
             return (
-                <TouchableOpacity style={itemStyle} onPress={() => onPress(item.id)}>
+                <Pressable style={itemStyle} onPress={() => onPress(item.id)}>
                     <Text style={{ color: selected ? COLORS.white : COLORS.primary }}>{item.keyword}</Text>
-                </TouchableOpacity>
+                </Pressable>
             );
         };
 

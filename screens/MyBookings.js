@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, FlatList, StyleSheet } from 'react-native'
+import { View, Text, Pressable, Image, FlatList, StyleSheet } from 'react-native'
 import React from 'react'
 import { ScrollView } from 'react-native-virtualized-view'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -12,7 +12,7 @@ const MyBookings = ({ navigation }) => {
   const renderHeader = () => {
     return (
       <View style={styles.headerContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.goBack()}
           style={styles.headerIcon}>
           <Image
@@ -20,20 +20,20 @@ const MyBookings = ({ navigation }) => {
             resizeMode='contain'
             style={styles.arrowLeft}
           />
-        </TouchableOpacity>
+        </Pressable>
         <Text style={{
           fontSize: 16,
           fontFamily: "bold",
           color: COLORS.black
         }}>My Appointments</Text>
-        <TouchableOpacity
+        <Pressable
           style={styles.headerIcon}>
           <Image
             source={icons.more}
             resizeMode='contain'
             style={styles.moreIcon}
           />
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }
@@ -84,16 +84,16 @@ const MyBookings = ({ navigation }) => {
                 <Text style={styles.transactionId}>{item.transactionId}</Text>
               </View>
               <View style={styles.historyBottom}>
-                <TouchableOpacity
+                <Pressable
                   onPress={() => navigation.navigate("CancelAppointment")}
                   style={styles.rateContainer}>
                   <Text style={styles.rate}>Cancel</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
+                </Pressable>
+                <Pressable
                   onPress={() => navigation.navigate("MyAppointmentDetail")}
                   style={styles.viewContainer}>
                   <Text style={styles.view}>View</Text>
-                </TouchableOpacity>
+                </Pressable>
               </View>
             </View>
           )}

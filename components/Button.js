@@ -1,6 +1,6 @@
 import {
     Text,
-    TouchableOpacity,
+    Pressable,
     StyleSheet,
     ActivityIndicator,
 } from 'react-native'
@@ -17,7 +17,7 @@ const Button = (props) => {
     const isLoading = props.isLoading || false
 
     return (
-        <TouchableOpacity
+        <Pressable
             style={{
                 ...styles.btn,
                 ...{ backgroundColor: bgColor },
@@ -32,7 +32,7 @@ const Button = (props) => {
                     {props.title}
                 </Text>
             )}
-        </TouchableOpacity>
+        </Pressable>
     )
 }
 const styles = StyleSheet.create({

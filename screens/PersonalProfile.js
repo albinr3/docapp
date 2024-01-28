@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, Image, Pressable, StyleSheet } from 'react-native'
 import React from 'react'
 import { ScrollView } from 'react-native-virtualized-view'
 import { COLORS, SIZES, FONTS, icons, images } from "../constants"
@@ -19,7 +19,7 @@ const PersonalProfile = () => {
         marginTop: 20,
       }}>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <TouchableOpacity
+          <Pressable
             onPress={() => navigation.goBack()}
             style={commonStyles.header1Icon}>
             <Image
@@ -27,17 +27,17 @@ const PersonalProfile = () => {
               source={icons.arrowLeft}
               style={{ height: 24, width: 24, tintColor: COLORS.black }}
             />
-          </TouchableOpacity>
+          </Pressable>
           <Text style={{ marginLeft: 12, fontSize: 17, fontFamily: 'regular' }}>Personal Profile</Text>
         </View>
-        <TouchableOpacity onPress={() => navigation.navigate("EditProfile")}>
+        <Pressable onPress={() => navigation.navigate("EditProfile")}>
           <Text style={{
             fontSize: 14,
             textTransform: 'uppercase',
             color: COLORS.primary,
             fontFamily: 'bold'
           }}>Edit</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }
@@ -71,7 +71,7 @@ const PersonalProfile = () => {
     return (
       <View style={{ flexDirection: 'column' }}>
         <View style={styles.container}>
-          <TouchableOpacity style={styles.subContainer}>
+          <Pressable style={styles.subContainer}>
             <View style={styles.subLeftContainer}>
               <View style={styles.rounded}>
                 <Feather name="user" size={24} color={COLORS.primary} />
@@ -81,8 +81,8 @@ const PersonalProfile = () => {
                 <Text style={styles.textBody}>Mariana Julia</Text>
               </View>
             </View>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.subContainer}>
+          </Pressable>
+          <Pressable style={styles.subContainer}>
             <View style={styles.subLeftContainer}>
               <View style={styles.rounded}>
                 <MaterialCommunityIcons name="email-outline" size={24} color="#413DFB" />
@@ -92,8 +92,8 @@ const PersonalProfile = () => {
                 <Text style={styles.textBody}>john@gmail.com</Text>
               </View>
             </View>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.subContainer}>
+          </Pressable>
+          <Pressable style={styles.subContainer}>
             <View style={styles.subLeftContainer}>
               <View style={styles.rounded}>
                 <Feather name="phone" size={24} color="#369BFF" />
@@ -103,7 +103,7 @@ const PersonalProfile = () => {
                 <Text style={styles.textBody}>408-278-248</Text>
               </View>
             </View>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     )

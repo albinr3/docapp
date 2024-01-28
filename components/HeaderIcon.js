@@ -1,10 +1,10 @@
-import { StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { StyleSheet, Pressable, Image } from 'react-native'
 import React from 'react'
 import { COLORS } from '../constants'
 
 const HeaderIcon = ({ icon, onPress }) => {
   return (
-    <TouchableOpacity 
+    <Pressable 
     onPress={onPress}
     style={styles.container}>
         <Image
@@ -12,7 +12,7 @@ const HeaderIcon = ({ icon, onPress }) => {
           resizeMode='contain'
           style={styles.icon}
         />
-    </TouchableOpacity>
+    </Pressable>
   )
 }
 

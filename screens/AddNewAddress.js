@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useReducer, useCallback, useState } from 'rea
 import MapView, { Marker, Callout, PROVIDER_GOOGLE } from 'react-native-maps'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { icons, SIZES, COLORS, FONTS } from '../constants'
-import { TouchableOpacity } from 'react-native'
+import { Pressable } from 'react-native'
 import RBSheet from "react-native-raw-bottom-sheet"
 import { commonStyles } from '../styles/commonStyles'
 import Input from '../components/Input'
@@ -69,7 +69,7 @@ const AddNewAddress = ({ navigation }) => {
                 top: 22,
                 zIndex: 999
             }}>
-                <TouchableOpacity
+                <Pressable
                     onPress={() => navigation.goBack()}
                     style={{
                         height: 45,
@@ -91,7 +91,7 @@ const AddNewAddress = ({ navigation }) => {
                             tintColor: COLORS.white
                         }}
                     />
-                </TouchableOpacity>
+                </Pressable>
                 <Text style={{ ...FONTS.body3 }}>Add New Address</Text>
             </View>
             <MapView
@@ -208,7 +208,7 @@ const AddNewAddress = ({ navigation }) => {
                         <Text style={{ fontSize: 13, fontFamily: 'regular', marginBottom: 2 }}>FREE TIME</Text>
 
                         <View style={{ flexDirection: "row", marginVertical: 13 }}>
-                            <TouchableOpacity
+                            <Pressable
                                 style={[
                                     styles.checkboxContainer,
                                     selectedLabel === "home" && styles.selectedCheckbox
@@ -216,9 +216,9 @@ const AddNewAddress = ({ navigation }) => {
                                 onPress={() => handleLabelSelection("home")}
                             >
                                 <Text style={[selectedLabel === "home" && styles.checkboxText]}>Home</Text>
-                            </TouchableOpacity>
+                            </Pressable>
 
-                            <TouchableOpacity
+                            <Pressable
                                 style={[
                                     styles.checkboxContainer,
                                     selectedLabel === "work" && styles.selectedCheckbox
@@ -226,9 +226,9 @@ const AddNewAddress = ({ navigation }) => {
                                 onPress={() => handleLabelSelection("work")}
                             >
                                 <Text style={[selectedLabel === "work" && styles.checkboxText]}>Work</Text>
-                            </TouchableOpacity>
+                            </Pressable>
 
-                            <TouchableOpacity
+                            <Pressable
                                 style={[
                                     styles.checkboxContainer,
                                     selectedLabel === "other" && styles.selectedCheckbox
@@ -240,7 +240,7 @@ const AddNewAddress = ({ navigation }) => {
                                         selectedLabel === "other" && styles.checkboxText
                                     ]
                                 }>Other</Text>
-                            </TouchableOpacity>
+                            </Pressable>
 
                         </View>
                         <Button

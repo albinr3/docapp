@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StatusBar } from 'react-native'
+import { View, Text, Pressable, StatusBar } from 'react-native'
 import React, { useState, useReducer, useEffect, useCallback } from 'react'
 import { COLORS } from '../constants'
 import * as Animatable from "react-native-animatable"
@@ -51,11 +51,11 @@ const Welcome = ({ navigation }) => {
         <View style={{ flex: 1, backgroundColor: COLORS.primary }}>
             <StatusBar hidden={true} />
             <View style={commonStyles.header}>
-                <TouchableOpacity
+                <Pressable
                     onPress={() => navigation.goBack()}
                     style={commonStyles.backIcon}>
                     <MaterialIcons name="keyboard-arrow-left" size={24} color={COLORS.black} />
-                </TouchableOpacity>
+                </Pressable>
                 <Text style={commonStyles.headerTitle}>Sign up</Text>
                 <Text
                     style={commonStyles.subHeaderTitle}>Please sign up to get started</Text>

@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
+import { View, Text, Pressable, Image, StyleSheet } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { ScrollView } from 'react-native-virtualized-view'
@@ -12,7 +12,7 @@ const MyAppointmentDetail = ({ navigation }) => {
   const renderHeader = () => {
     return (
       <View style={styles.headerContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.goBack()}
           style={styles.headerIcon}>
           <Image
@@ -20,20 +20,20 @@ const MyAppointmentDetail = ({ navigation }) => {
             resizeMode='contain'
             style={styles.arrowLeft}
           />
-        </TouchableOpacity>
+        </Pressable>
         <Text style={{
           fontSize: 16,
           fontFamily: "bold",
           color: COLORS.black
         }}>My Appointment</Text>
-        <TouchableOpacity
+        <Pressable
           style={styles.headerIcon}>
           <Image
             source={icons.more}
             resizeMode='contain'
             style={styles.moreIcon}
           />
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   };
@@ -47,7 +47,7 @@ const MyAppointmentDetail = ({ navigation }) => {
       <View style={{ marginBottom: 100 }}>
         <View style={styles.doctorInfoContainer}>
           <View>
-            <TouchableOpacity>
+            <Pressable>
               <Image
                 source={images.doctor1}
                 resizeMode='contain'
@@ -63,7 +63,7 @@ const MyAppointmentDetail = ({ navigation }) => {
                   }}
                 />
               </View>
-            </TouchableOpacity>
+            </Pressable>
           </View>
           <View style={{
             marginLeft: 16
@@ -154,11 +154,11 @@ const MyAppointmentDetail = ({ navigation }) => {
 
     return (
       <View style={styles.btnContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.navigate("Message")}
           style={styles.btn}>
           <Text style={styles.btnText}>Message (Start at 16:00 PM)</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }

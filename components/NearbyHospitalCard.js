@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { View, Text, StyleSheet, Pressable, Image } from 'react-native'
 import React, { useState } from 'react'
 import { COLORS, SIZES } from '../constants'
 import { AntDesign, FontAwesome, Ionicons } from "@expo/vector-icons"
@@ -6,12 +6,12 @@ import { AntDesign, FontAwesome, Ionicons } from "@expo/vector-icons"
 const NearbyHospitalCard = ({ image, rating, name, distance, time, specialties, address, reviews }) => {
     const [isLiked, setIsLiked] = useState(false)
     return (
-        <TouchableOpacity style={styles.container}>
-            <TouchableOpacity
+        <Pressable style={styles.container}>
+            <Pressable
                 onPress={() => setIsLiked(!isLiked)}
                 style={styles.likeContainer}>
                 <Ionicons name={isLiked ? "heart-sharp" : "heart-outline"} size={24} color={COLORS.red} />
-            </TouchableOpacity>
+            </Pressable>
             <View style={styles.reviewContainer}>
                 <FontAwesome name="star" size={20} color="orange" />
                 <Text style={styles.ratingNum}>{rating}</Text>
@@ -43,7 +43,7 @@ const NearbyHospitalCard = ({ image, rating, name, distance, time, specialties, 
                     <Text style={styles.subtitle}>{time} - {distance}Km</Text>
                 </View>
             </View>
-        </TouchableOpacity>
+        </Pressable>
     )
 }
 

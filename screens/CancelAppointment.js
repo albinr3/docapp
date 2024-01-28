@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, StyleSheet, TextInput } from 'react-native'
+import { View, Text, Pressable, Image, StyleSheet, TextInput } from 'react-native'
 import React, { useState } from 'react'
 import { ScrollView } from 'react-native-virtualized-view'
 import { COLORS, SIZES, icons } from "../constants"
@@ -12,7 +12,7 @@ const CancelAppointment = ({ navigation }) => {
   const renderHeader = () => {
     return (
       <View style={styles.headerContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.goBack()}
           style={styles.headerIcon}>
           <Image
@@ -20,20 +20,20 @@ const CancelAppointment = ({ navigation }) => {
             resizeMode='contain'
             style={styles.arrowLeft}
           />
-        </TouchableOpacity>
+        </Pressable>
         <Text style={{
           fontSize: 16,
           fontFamily: "bold",
           color: COLORS.black
         }}>Cancel Booking</Text>
-        <TouchableOpacity
+        <Pressable
           style={styles.headerIcon}>
           <Image
             source={icons.more}
             resizeMode='contain'
             style={styles.moreIcon}
           />
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }
@@ -113,11 +113,11 @@ const CancelAppointment = ({ navigation }) => {
   const renderSubmitButton = () => {
     return (
       <View style={styles.btnContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.navigate("MyBookings")}
           style={styles.btn}>
           <Text style={styles.btnText}>Submit</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }

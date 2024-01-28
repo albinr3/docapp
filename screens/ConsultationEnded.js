@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, Pressable } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import HeaderIcon from '../components/HeaderIcon'
@@ -12,11 +12,11 @@ const ConsultationEnded = ({ navigation }) => {
   const renderButton = () => {
     return (
       <View style={styles.btnContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.navigate("AddDoctorReview")}
           style={styles.btn}>
           <Text style={styles.btnText}>Add Review</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }

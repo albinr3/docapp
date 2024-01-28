@@ -1,10 +1,10 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, Pressable } from 'react-native'
 import React from 'react'
 import { COLORS } from '../constants'
 
 const PackageItem = ({ checked, onPress, title, subtitle, price, duration, icon }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
+    <Pressable onPress={onPress} style={styles.container}>
        <View style={styles.rightContainer}>
             <View style={styles.iconContainer}>
                 <Image
@@ -23,7 +23,7 @@ const PackageItem = ({ checked, onPress, title, subtitle, price, duration, icon 
                 <Text style={styles.title}>${price}</Text>
                 <Text style={styles.subtitle}>/{duration}</Text>
             </View>  
-            <TouchableOpacity style={{marginLeft: 8}} onPress={onPress}>
+            <Pressable style={{marginLeft: 8}} onPress={onPress}>
                 <View
                 style={{
                     width: 20,
@@ -43,10 +43,10 @@ const PackageItem = ({ checked, onPress, title, subtitle, price, duration, icon 
                     borderRadius: 999
                     }}/> }
                 </View>
-            </TouchableOpacity>
+            </Pressable>
 
        </View>
-    </TouchableOpacity>
+    </Pressable>
   )
 }
 

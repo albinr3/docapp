@@ -7,9 +7,10 @@ import {
   ScrollView,
   Animated,
   Image,
-  TouchableOpacity,
+  Pressable,
   Dimensions,
   Platform,
+  StatusBar
 } from "react-native";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import { Ionicons } from "@expo/vector-icons";
@@ -125,6 +126,7 @@ const Explore = () => {
 
   return (
     <View style={styles.container}>
+      <StatusBar translucent backgroundColor="transparent"/>
       <MapView
         ref={_map}
         initialRegion={state.region}
@@ -156,7 +158,7 @@ const Explore = () => {
       <View style={styles.searchBox}>
         <TextInput
           placeholder="Search doctor, hospital..."
-          placeholderTextColor="#000"
+          placeholderTextColor="gray"
           autoCapitalize="none"
           style={{ flex: 1, padding: 0 }}
         />
@@ -179,10 +181,10 @@ const Explore = () => {
         }}
       >
         {state.categories.map((category, index) => (
-          <TouchableOpacity key={index} style={styles.chipsItem}>
+          <Pressable key={index} style={styles.chipsItem}>
             {category.icon}
             <Text>{category.name}</Text>
-          </TouchableOpacity>
+          </Pressable>
         ))}
       </ScrollView>
       <Animated.ScrollView
@@ -239,7 +241,7 @@ const Explore = () => {
                 <Text style={styles.type}>{marker.type}</Text>
               </View>
               <View style={styles.button}>
-                <TouchableOpacity
+                <Pressable
                   onPress={() => { }}
                   style={[styles.signIn, {
                     borderColor: COLORS.primary,
@@ -249,7 +251,7 @@ const Explore = () => {
                   <Text style={[styles.textSign, {
                     color: COLORS.primary
                   }]}>View More</Text>
-                </TouchableOpacity>
+                </Pressable>
               </View>
             </View>
           </View>
@@ -267,22 +269,27 @@ const styles = StyleSheet.create({
   },
   searchBox: {
     position: 'absolute',
-    marginTop: Platform.OS === 'ios' ? 40 : 20,
+    marginTop: Platform.OS === 'ios' ? 40 : 30,
     flexDirection: "row",
     backgroundColor: '#fff',
     width: '90%',
     alignSelf: 'center',
-    borderRadius: 5,
+    borderRadius: 20,
     padding: 10,
-    shadowColor: '#ccc',
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.5,
-    shadowRadius: 5,
-    elevation: 10,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.23,
+    shadowRadius: 2.62,
+
+    elevation: 4,
   },
   chipsScrollView: {
     position: 'absolute',
-    top: Platform.OS === 'ios' ? 90 : 80,
+    top: Platform.OS === 'ios' ? 90 : 85,
     paddingHorizontal: 10
   },
   chipsIcon: {

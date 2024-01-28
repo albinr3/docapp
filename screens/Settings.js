@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, StyleSheet, Switch, Modal, FlatList, StatusBar } from 'react-native'
+import { View, Text, Pressable, Image, StyleSheet, Switch, Modal, FlatList, StatusBar } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, icons } from '../constants'
@@ -15,7 +15,7 @@ const Settings = ({ navigation }) => {
         alignItems: 'center',
         marginTop: 20,
       }}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.goBack()}
           style={commonStyles.header1Icon}
         >
@@ -24,7 +24,7 @@ const Settings = ({ navigation }) => {
             source={icons.arrowLeft}
             style={{ height: 24, width: 24, tintColor: COLORS.black }}
           />
-        </TouchableOpacity>
+        </Pressable>
         <Text style={{ marginLeft: 12, fontSize: 17, fontFamily: "regular" }}>Settings</Text>
       </View>
     )
@@ -80,21 +80,21 @@ const Settings = ({ navigation }) => {
     ];
 
     const renderCurrencyItem = ({ item }) => (
-      <TouchableOpacity
+      <Pressable
         style={[styles.optionButton, currency === item.id && styles.optionButtonSelected]}
         onPress={() => handleCurrencyChange(item.id)}
       >
         <Text style={[styles.optionText, currency === item.id && styles.optionTextSelected]}>{item.name}</Text>
-      </TouchableOpacity>
+      </Pressable>
     );
 
     const renderLanguageItem = ({ item }) => (
-      <TouchableOpacity
+      <Pressable
         style={[styles.optionButton, language === item.id && styles.optionButtonSelected]}
         onPress={() => handleLanguageChange(item.id)}
       >
         <Text style={[styles.optionText, language === item.id && styles.optionTextSelected]}>{item.name}</Text>
-      </TouchableOpacity>
+      </Pressable>
     );
 
     return (
@@ -131,12 +131,12 @@ const Settings = ({ navigation }) => {
 
         <View style={styles.settingContainer}>
           <Text style={styles.settingLabel}>Currency</Text>
-          <TouchableOpacity
+          <Pressable
             style={styles.modalButton}
             onPress={() => setCurrencyModalVisible(true)}
           >
             <Text style={styles.modalButtonText}>{currency}</Text>
-          </TouchableOpacity>
+          </Pressable>
           <Modal
             visible={isCurrencyModalVisible}
             animationType="slide"
@@ -150,24 +150,24 @@ const Settings = ({ navigation }) => {
                 keyExtractor={(item) => item.id}
                 showsVerticalScrollIndicator={false}
               />
-              <TouchableOpacity
+              <Pressable
                 style={styles.modalCloseButton}
                 onPress={() => setCurrencyModalVisible(false)}
               >
                 <Text style={styles.modalCloseButtonText}>Close</Text>
-              </TouchableOpacity>
+              </Pressable>
             </View>
           </Modal>
         </View>
 
         <View style={styles.settingContainer}>
           <Text style={styles.settingLabel}>Language</Text>
-          <TouchableOpacity
+          <Pressable
             style={styles.modalButton}
             onPress={() => setLanguageModalVisible(true)}
           >
             <Text style={styles.modalButtonText}>{language}</Text>
-          </TouchableOpacity>
+          </Pressable>
           <Modal
             visible={isLanguageModalVisible}
             animationType="slide"
@@ -181,12 +181,12 @@ const Settings = ({ navigation }) => {
                 keyExtractor={(item) => item.id}
                 showsVerticalScrollIndicator={false}
               />
-              <TouchableOpacity
+              <Pressable
                 style={styles.modalCloseButton}
                 onPress={() => setLanguageModalVisible(false)}
               >
                 <Text style={styles.modalCloseButtonText}>Close</Text>
-              </TouchableOpacity>
+              </Pressable>
             </View>
           </Modal>
         </View>

@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, StatusBar } from 'react-native'
+import { View, Text, Pressable, Image, StatusBar } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import React, { useState, useReducer, useCallback, useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
@@ -52,7 +52,7 @@ const AddNewPaymentMethod = ({ navigation }) => {
           alignItems: 'center',
           marginTop: 20,
         }}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.goBack()}
           style={commonStyles.header1Icon}
         >
@@ -61,7 +61,7 @@ const AddNewPaymentMethod = ({ navigation }) => {
             source={icons.close}
             style={{ height: 24, width: 24, tintColor: COLORS.black }}
           />
-        </TouchableOpacity>
+        </Pressable>
         <Text style={{ marginLeft: 12, fontSize: 17, fontFamily: "regular" }}>Add Card</Text>
       </View>
     )

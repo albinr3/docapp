@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, Image, Pressable, StyleSheet } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, FONTS, SIZES, illustrations } from '../constants'
@@ -42,20 +42,20 @@ const LocationAccess = ({ navigation }) => {
 
     return (
         <SafeAreaView style={styles.area}>
-            <StatusBar hidden={true} />
+            <StatusBar hidden={false} barStyle='dark-content' backgroundColor={COLORS.white}/>
             <View style={styles.center}>
                 <Image
                     source={illustrations.mapDark}
                     resizeMode='contain'
                     style={styles.locationImage} />
-                <TouchableOpacity
+                <Pressable
                     onPress={() => navigation.navigate("Main")}
                     style={styles.btn}>
                     <Text style={styles.btnText}>Access Location</Text>
                     <View style={styles.iconContainer}>
                         <Ionicons name="location-outline" size={20} color={COLORS.white} />
                     </View>
-                </TouchableOpacity>
+                </Pressable>
                 <Text style={styles.bottomText}>HelpDoc WILL ACCESS YOUR LOCATION ONLY WHILE USING THE APP</Text>
             </View>
         </SafeAreaView>

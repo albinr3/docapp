@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, Image, TextInput } from 'react-native'
+import { View, Text, StyleSheet, ImageBackground, Pressable, Image, TextInput } from 'react-native'
 import React, { useState } from 'react'
 import { COLORS, SIZES, icons, images } from '../constants'
 import HeaderIcon from '../components/HeaderIcon'
@@ -24,7 +24,7 @@ const AddHospitalReview = ({ navigation }) => {
               icon={icons.share}
               onPress={() => console.log("Share")}
             />
-            <TouchableOpacity
+            <Pressable
               onPress={() => setIsFavourite(!isFavourite)}
               style={styles.heartIconContainer}>
               <Image
@@ -36,7 +36,7 @@ const AddHospitalReview = ({ navigation }) => {
                   tintColor: isFavourite ? COLORS.red : COLORS.black
                 }}
               />
-            </TouchableOpacity>
+            </Pressable>
           </View>
         </View>
       </ImageBackground>
@@ -70,7 +70,7 @@ const AddHospitalReview = ({ navigation }) => {
     return (
       <View style={styles.contentContainer}>
         <View style={{ paddingHorizontal: 16 }}>
-          <TouchableOpacity
+          <Pressable
             style={{
               alignItems: "center",
               width: "100%",
@@ -80,7 +80,7 @@ const AddHospitalReview = ({ navigation }) => {
               <FontAwesome name="star" size={16} color={COLORS.white} />
               <Text style={styles.rating}>4.8 (1k+ reviews) </Text>
             </View>
-          </TouchableOpacity>
+          </Pressable>
           <View>
             <Text style={styles.name}>Senerity Wellness Clinic</Text>
             <Text style={styles.subname}>Dental, Skin Care, Eye Care</Text>
@@ -116,12 +116,12 @@ const AddHospitalReview = ({ navigation }) => {
             onChangeText={handleCommentChange}
             value={comment}
           />
-          <TouchableOpacity
+          <Pressable
             onPress={pickImageHandler}
             style={styles.selectPhotoContainer}>
             <Feather name="camera" size={20} color={COLORS.primary} />
             <Text style={styles.selectPhotoText}>add photo</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     )
@@ -132,11 +132,11 @@ const AddHospitalReview = ({ navigation }) => {
   const renderSubmitButton = () => {
     return (
       <View style={styles.btnContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.navigate("HospitalDetails")}
           style={styles.btn}>
           <Text style={styles.btnText}>Submit</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }

@@ -13,6 +13,7 @@ const DotsView = ({
     const dots = []
 
     for (let i = 0; i < numDots; i++) {
+       
         dots.push(
             <View
                 key={i}
@@ -27,7 +28,7 @@ const DotsView = ({
                         borderRadius: dotSize / 2,
                         marginHorizontal: dotSpacing / 2,
                     },
-                    progress >= i / (numDots - 1)
+                    progress >= i 
                         ? {
                             backgroundColor: activeDotColor,
                         }

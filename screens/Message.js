@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, FlatList, Image } from 'react-native'
+import { View, Text, StyleSheet, Pressable, TextInput, FlatList, Image } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, SIZES } from '../constants'
@@ -22,7 +22,7 @@ const Message = ({ navigation }) => {
   const renderHeader = () => {
     return (
       <View style={styles.headerContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.goBack()}
           style={styles.iconBtnContainer}>
           <AntDesign
@@ -30,9 +30,9 @@ const Message = ({ navigation }) => {
             color={COLORS.black}
             size={24}
           />
-        </TouchableOpacity>
+        </Pressable>
         <Text style={styles.headerTitle}>Message</Text>
-        <TouchableOpacity
+        <Pressable
           style={styles.iconBtnContainer}>
           <View style={styles.notiContainer}>
             <Text style={styles.notiText}>2</Text>
@@ -42,13 +42,13 @@ const Message = ({ navigation }) => {
             color={COLORS.black}
             size={24}
           />
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }
 
   const renderItem = ({ item, index }) => (
-    <TouchableOpacity
+    <Pressable
       key={index}
       onPress={() =>
         navigation.navigate('Chat', {
@@ -84,7 +84,7 @@ const Message = ({ navigation }) => {
           <Text style={styles.lastMessageTime}>{item.lastMessageTime}</Text>
           <View>
 
-            <TouchableOpacity style={{
+            <Pressable style={{
               width: 20,
               height: 20,
               borderRadius: 999,
@@ -94,12 +94,12 @@ const Message = ({ navigation }) => {
               marginTop: 12
             }}>
               <Text style={styles.messageInQueue}>{`${item.messageInQueue}`}</Text>
-            </TouchableOpacity>
+            </Pressable>
 
           </View>
         </View>
       </View>
-    </TouchableOpacity>
+    </Pressable>
   );
 
   /**

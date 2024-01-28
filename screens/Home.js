@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, FlatList, Image } from 'react-native'
+import { View, Text, StatusBar, StyleSheet, Pressable, TextInput, FlatList, Image } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, icons } from '../constants'
@@ -34,7 +34,7 @@ const Home = ({ navigation }) => {
             />
           </View>
         </View>
-        <TouchableOpacity 
+        <Pressable 
           onPress={()=>navigation.navigate("Notifications")}
           style={styles.notificationContainer}>
           <View
@@ -45,7 +45,7 @@ const Home = ({ navigation }) => {
             resizeMode='contain'
             style={styles.bellIcon}
           />
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }
@@ -58,9 +58,9 @@ const Home = ({ navigation }) => {
     return (
       <View style={styles.searchBarContainer}>
         <View style={styles.searchInputContainer}>
-          <TouchableOpacity>
+          <Pressable>
             <AntDesign name="search1" size={28} color={COLORS.primary} />
-          </TouchableOpacity>
+          </Pressable>
           <TextInput
             placeholder='Search'
             placeholderTextColor="gray"
@@ -71,13 +71,13 @@ const Home = ({ navigation }) => {
             }}
           />
         </View>
-        <TouchableOpacity style={styles.filterIconContainer}>
+        <Pressable style={styles.filterIconContainer}>
           <Image
             source={icons.filter2}
             resizeMode='contain'
             style={styles.filterIcon}
           />
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }
@@ -97,9 +97,9 @@ const Home = ({ navigation }) => {
               <Text style={styles.upcommingNum}>8</Text>
             </View>
           </View>
-          <TouchableOpacity>
+          <Pressable>
             <Text style={styles.headerSectionSubtitle}>See All</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
         <FlatList
           data={userScheduleData}
@@ -133,11 +133,11 @@ const Home = ({ navigation }) => {
           }}>
             <Text style={styles.headerSectionTitle}>Doctor speciality</Text>
           </View>
-          <TouchableOpacity
+          <Pressable
             onPress={() => navigation.navigate("Category")}
           >
             <Text style={styles.headerSectionSubtitle}>See All</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
         <FlatList
           data={specialities}
@@ -169,11 +169,11 @@ const Home = ({ navigation }) => {
           }}>
             <Text style={styles.headerSectionTitle}>Nearby Hospitals</Text>
           </View>
-          <TouchableOpacity
+          <Pressable
             onPress={() => navigation.navigate("AllHospitals")}
           >
             <Text style={styles.headerSectionSubtitle}>See All</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
         <FlatList
           horizontal={true}
@@ -209,11 +209,11 @@ const Home = ({ navigation }) => {
           }}>
             <Text style={styles.headerSectionTitle}>Top Specialist</Text>
           </View>
-          <TouchableOpacity
+          <Pressable
             onPress={() => navigation.navigate("AllSpecialists")}
           >
             <Text style={styles.headerSectionSubtitle}>See All</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
         <FlatList
           data={specialists}
@@ -235,6 +235,7 @@ const Home = ({ navigation }) => {
   }
   return (
     <SafeAreaView style={styles.area}>
+      <StatusBar hidden={false} barStyle='dark-content' backgroundColor={COLORS.white}/>
       <View style={styles.container}>
         {renderHeader()}
         <ScrollView showsVerticalScrollIndicator={false}>

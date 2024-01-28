@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, StyleSheet, TextInput } from 'react-native'
+import { View, Text, Pressable, Image, StyleSheet, TextInput } from 'react-native'
 import React, { useState, useRef } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS, SIZES, icons } from '../constants'
@@ -12,7 +12,7 @@ const PatientDetails = ({ navigation }) => {
   const renderHeader = () => {
     return (
       <View style={styles.headerContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.goBack()}
           style={styles.headerIcon}>
           <Image
@@ -20,20 +20,20 @@ const PatientDetails = ({ navigation }) => {
             resizeMode='contain'
             style={styles.arrowLeft}
           />
-        </TouchableOpacity>
+        </Pressable>
         <Text style={{
           fontSize: 16,
           fontFamily: "bold",
           color: COLORS.black
         }}>Patient Details</Text>
-        <TouchableOpacity
+        <Pressable
           style={styles.headerIcon}>
           <Image
             source={icons.more}
             resizeMode='contain'
             style={styles.moreIcon}
           />
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   };
@@ -124,11 +124,11 @@ const PatientDetails = ({ navigation }) => {
 
     return (
       <View style={styles.btnContainer}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => navigation.navigate("PaymentMethods")}
           style={styles.btn}>
           <Text style={styles.btnText}>Next</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     )
   }

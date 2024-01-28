@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native'
+import { View, Text, Pressable, Image } from 'react-native'
 import React, { useState, useReducer, useEffect, useCallback } from 'react'
 import { COLORS, SIZES, icons, images } from "../constants"
 import { useNavigation } from '@react-navigation/native'
@@ -72,14 +72,14 @@ const EditProfile = () => {
                 marginTop: 20,
             }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <TouchableOpacity
+                    <Pressable
                         onPress={() => navigation.goBack()}
                         style={commonStyles.header1Icon}>
                         <Image
                             resizeMode='contain'
                             source={icons.arrowLeft}
                             style={{ height: 24, width: 24, tintColor: COLORS.black }}/>
-                    </TouchableOpacity>
+                    </Pressable>
                     <Text style={{ marginLeft: 12, fontSize: 17, fontFamily: 'regular' }}>Edit Profile</Text>
                 </View>
 
@@ -105,7 +105,7 @@ const EditProfile = () => {
                             borderRadius: 65
                         }}
                     />
-                    <TouchableOpacity
+                    <Pressable
                         onPress={pickImage}
                         style={{
                             height: 42,
@@ -122,7 +122,7 @@ const EditProfile = () => {
                             name="pencil-outline"
                             size={24}
                             color={COLORS.white} />
-                    </TouchableOpacity>
+                    </Pressable>
                 </View>
 
                 <View style={{ width: SIZES.width - 32 }}>
