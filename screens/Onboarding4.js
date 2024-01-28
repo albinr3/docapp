@@ -12,7 +12,7 @@ const Onboarding4 = ({navigation}) => {
 
   useEffect(() => {
     if (progress >= 4) {
-      navigation.navigate('Signup');
+      navigation.navigate('PreSignup');
     } else {
       // This should ensure that the dot is marked as active after 2 seconds
       const timer = setTimeout(() => {
@@ -54,12 +54,12 @@ const Onboarding4 = ({navigation}) => {
             <Button
               title="Next"
               filled
-              onPress={() => navigation.navigate('Onboarding4')}
+              onPress={() => navigation.replace('PreSignup')}
               style={Onboarding1Styles.nextButton}
             />
             <Button
               title="Skip"
-              onPress={() => navigation.navigate('Signup')}
+              onPress={() => navigation.replace('PreSignup')}
               textColor={COLORS.secondary}
               style={Onboarding1Styles.skipButton}
             />

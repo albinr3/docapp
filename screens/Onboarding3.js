@@ -21,7 +21,7 @@ const Onboarding3 = ({navigation}) => {
 
       return () => clearTimeout(timer);
     }
-  }, [progress, navigation]);
+  }, [progress]);
 
   return (
     <SafeAreaView style={Onboarding1Styles.container}>
@@ -58,7 +58,7 @@ const Onboarding3 = ({navigation}) => {
             />
             <Button
               title="Skip"
-              onPress={() => navigation.navigate('Login')}
+              onPress={() => navigation.replace('PreSignup')}
               textColor={COLORS.secondary}
               style={Onboarding1Styles.skipButton}
             />

@@ -51,6 +51,7 @@ export const commonStyles = StyleSheet.create({
         ...FONTS.body4,
         marginVertical: 4
     },
+
     checkBoxContainer:{
         flexDirection: "row",
         justifyContent: 'space-between',

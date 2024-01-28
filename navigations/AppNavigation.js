@@ -1,19 +1,20 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import React, { useState, useEffect } from 'react'
+import { VariablesProvider } from './Context';
 import {
     Onboarding1,
     Onboarding2,
     Onboarding3,
     Onboarding4,
-    Signup,
-    Verification,
+    PreSignup,
+    Emailverification,
     Login,
     StartUpScreen,
     ForgotPassword,
     ResetPassword,
     PhoneVerification,
-    Welcome,
+    Signup,
     SuccessRegister,
     ChangePassword,
     LocationAccess,
@@ -65,7 +66,6 @@ const AppNavigation = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        console.log('isFirstLaunch before navigation decision:1', isFirstLaunch);
 
         const checkIfFirstLaunch = async () => {
             try {
@@ -86,36 +86,34 @@ const AppNavigation = () => {
         }
 
         checkIfFirstLaunch();
-        console.log('isFirstLaunch before navigation decision:2', isFirstLaunch);
 
     }, [])
    
     if (isLoading) {
-        console.log('isFirstLaunch before navigation decision:4', isFirstLaunch);
 
         return null // Render a loader or any other loading state component
         
     }
-    console.log('isFirstLaunch before navigation decision:3', isFirstLaunch);
 
    
     return (
+        <VariablesProvider>
         <NavigationContainer>
             <Stack.Navigator 
                 screenOptions={{ headerShown: false }}
-                initialRouteName={isFirstLaunch ? 'Onboarding1' : 'Login'}>
+                initialRouteName={isFirstLaunch ? 'Onboarding1' : 'Login'}>     
                 <Stack.Screen name="Onboarding1" component={Onboarding1}/>
                 <Stack.Screen name="Onboarding2" component={Onboarding2}/>
                 <Stack.Screen name="Onboarding3" component={Onboarding3}/>
                 <Stack.Screen name="Onboarding4" component={Onboarding4}/>
-                <Stack.Screen name="Signup" component={Signup}/>
+                <Stack.Screen name="PreSignup" component={PreSignup}/>
                 <Stack.Screen name="StartUpScreen" component={StartUpScreen}/>
                 <Stack.Screen name="Login" component={Login}/>
                 <Stack.Screen name="ForgotPassword" component={ForgotPassword}/>
                 <Stack.Screen name="ResetPassword" component={ResetPassword}/>
-                <Stack.Screen name="Verification" component={Verification}/>
+                <Stack.Screen name="Emailverification" component={Emailverification}/>
                 <Stack.Screen name="PhoneVerification" component={PhoneVerification}/>
-                <Stack.Screen name="Welcome" component={Welcome}/>
+                <Stack.Screen name="Signup" component={Signup}/>
                 <Stack.Screen name="SuccessRegister" component={SuccessRegister}/>
                 <Stack.Screen name="ChangePassword" component={ChangePassword}/>
                 <Stack.Screen name="LocationAccess" component={LocationAccess}/>
@@ -159,6 +157,7 @@ const AppNavigation = () => {
                 <Stack.Screen name="History" component={History}/>
             </Stack.Navigator>
         </NavigationContainer>
+        </VariablesProvider>
     )
 }
 

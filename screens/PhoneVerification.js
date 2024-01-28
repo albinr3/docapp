@@ -9,10 +9,10 @@ import Button from '../components/Button';
 const PhoneVerification = ({ navigation }) => {
   return (
     <SafeAreaView style={commonStyles.area}>
-      <StatusBar hidden={true} />
+      <StatusBar hidden={false} barStyle='dark-content' backgroundColor={COLORS.white}/>
       <View style={pageStyles.container}>
         <Text style={pageStyles.title}>Enter Code</Text>
-        <Text style={pageStyles.subTitle}>Enter the 6-digit verification sent to +62852000342</Text>
+        <Text style={pageStyles.subTitle}>Enter the 6-digit Emailverification sent to +62852000342</Text>
         <View>
           <Image
             source={illustrations.illustration6}
@@ -41,7 +41,7 @@ const PhoneVerification = ({ navigation }) => {
           title="CONTINUE"
           color={COLORS.primary}
           borderColor={COLORS.primary}
-          onPress={() => navigation.navigate("Welcome")}
+          onPress={() => navigation.navigate("Signup")}
           filled
           style={pageStyles.button}
         />

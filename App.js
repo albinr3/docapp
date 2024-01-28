@@ -5,9 +5,11 @@ import { useCallback } from 'react'
 import { FONTS } from './constants/fonts'
 import AppNavigation from './navigations/AppNavigation'
 import { LogBox } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 //Ignore all log notifications
 LogBox.ignoreAllLogs();
+
 console.log(process.env.EXPO_PUBLIC_APIKEY)
 SplashScreen.preventAutoHideAsync()
 

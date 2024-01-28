@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     input: {
-        color: COLORS.black2,
+        color: COLORS.black,
         flex: 1,
         fontFamily: "regular",
         paddingTop: 0,

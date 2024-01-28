@@ -10,28 +10,21 @@ import { COLORS, images } from '../constants';
 const Onboarding1 = ({navigation}) => {
   const [progress, setProgress] = useState(0);
 
+  // First useEffect
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setProgress(prevProgress => {
-        if (prevProgress < 1) {
-          return prevProgress + 1;
-        } else {
-          clearInterval(intervalId); // Detener el intervalo cuando progress llega a 1
-          return prevProgress;
-        }
-      });
-    }, 2000);
-
-    return () => intervalId;
-  }, []);
-
-  useEffect(() => {
-    console.log(progress)
     if (progress >= 1) {
-      // navigate to the Onboarding2 Screen
       navigation.navigate('Onboarding2');
+    } else {
+      // This should ensure that the dot is marked as active after 2 seconds
+      const timer = setTimeout(() => {
+        setProgress(1);
+      }, 2000);
+
+      return () => clearTimeout(timer);
     }
-  }, [progress, navigation]);
+  }, [progress]);
+
+
 
   return (
     <SafeAreaView style={Onboarding1Styles.container}>
@@ -68,7 +61,7 @@ const Onboarding1 = ({navigation}) => {
             />
             <Button
               title="Skip"
-              onPress={() => navigation.navigate('Login')}
+              onPress={() => navigation.replace('PreSignup')}
               textColor={COLORS.secondary}
               style={Onboarding1Styles.skipButton}
             />

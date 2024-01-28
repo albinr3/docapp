@@ -116,7 +116,7 @@ const Login = ({ navigation }) => {
                 <View style={commonStyles.center}>
                     <Text style={{ ...FONTS.body4, color: COLORS.black }}>Don't have an account?{" "}</Text>
                     <Pressable
-                        onPress={() => navigation.navigate("Signup")}
+                        onPress={() => navigation.navigate("PreSignup")}
                     >
                         <Text style={{ ...FONTS.body4, color: COLORS.primary }}>SIGN UP</Text>
                     </Pressable>

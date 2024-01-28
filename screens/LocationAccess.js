@@ -5,12 +5,13 @@ import { COLORS, FONTS, SIZES, illustrations } from '../constants'
 import { Ionicons } from '@expo/vector-icons';
 import * as Location from 'expo-location'
 import { StatusBar } from 'expo-status-bar';
+import { useVariables } from '../navigations/Context';
 
 const LocationAccess = ({ navigation }) => {
+    const { gps, setGps } = useVariables();
     const arrayGPS = [];
-    const [gps, setGps] = useState(null);
     const [errorMsg, setErrorMsg] = useState(null);
-    const [address, setAddress] = useState(null)
+    const [textAddress, setTextAddress] = useState(null)
 
     // Get user location
     useEffect(() => {
@@ -25,20 +26,22 @@ const LocationAccess = ({ navigation }) => {
             const parsedData = JSON.parse(text)
             const longitude = parsedData.coords.longitude
             const latitude = parsedData.coords.latitude
-            arrayGPS.push(longitude, latitude)
+            setGps({longitude: longitude, latitude: latitude})
+            
 
-            let address = await Location.reverseGeocodeAsync({
+            let textAddress = await Location.reverseGeocodeAsync({
                 latitude: latitude,
                 longitude: longitude,
             })
-            setAddress(
-                `${address[0].name}, ${address[0].district}, ${address[0].city}`
+            setTextAddress(
+                `${textAddress[0].name}, ${textAddress[0].district}, ${textAddress[0].city}`
             )
-            setGps(arrayGPS)
+            
         }
 
         getPermissions()
-    }, [gps])
+     
+    }, [])
 
     return (
         <SafeAreaView style={styles.area}>

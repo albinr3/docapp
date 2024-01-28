@@ -7,7 +7,7 @@ import { commonStyles } from '../styles/commonStyles'
 import { MaterialIcons } from "@expo/vector-icons"
 import { OtpInput } from "react-native-otp-entry"
 
-const Verification = ({ navigation }) => {
+const Emailverification = ({ navigation }) => {
     const [error, setError] = useState("")
     const [isLoading, setIsLoading] = useState(false)
 
@@ -19,7 +19,7 @@ const Verification = ({ navigation }) => {
 
     return (
         <View style={{ flex: 1, backgroundColor: COLORS.primary }}>
-            <StatusBar hidden={true} />
+            <StatusBar hidden={false} barStyle='light-content' backgroundColor={COLORS.primary}/>
             <View style={commonStyles.header}>
                 <Pressable
                     onPress={() => navigation.goBack()}
@@ -89,4 +89,4 @@ const otpInputStyles = {
   },
 };
 
-export default Verification
+export default Emailverification

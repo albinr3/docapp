@@ -65,7 +65,7 @@ const ForgotPassword = ({ navigation }) => {
 
         <Button
           title="SEND CODE"
-          onPress={() => navigation.navigate("Verification")}
+          onPress={() => navigation.navigate("Emailverification")}
           filled
           color={COLORS.primary}
           borderColor={COLORS.primary}
@@ -75,9 +75,9 @@ const ForgotPassword = ({ navigation }) => {
         <View style={styles.signUpTextContainer}>
           <Text style={styles.signUpText}>Don’t have an account?</Text>
           <Pressable
-            onPress={() => navigation.navigate("Welcome")}
+            onPress={() => navigation.navigate("Signup")}
           >
-            <Text style={styles.signUpLink}>{" "}Signup</Text>
+            <Text style={styles.signUpLink}>{" "}PreSignup</Text>
           </Pressable>
         </View>
       </View>

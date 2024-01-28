@@ -2,14 +2,14 @@ import Onboarding1 from "./Onboarding1";
 import Onboarding2 from "./Onboarding2";
 import Onboarding3 from "./Onboarding3";
 import Onboarding4 from "./Onboarding4";
-import Signup from "./Signup";
+import PreSignup from "./PreSignup";
 import Login from "./Login";
 import ForgotPassword from "./ForgotPassword";
 import ResetPassword from "./ResetPassword";
-import Verification from "./Verification";
+import Emailverification from "./Emailverification";
 import StartUpScreen from "./StartUpScreen";
 import PhoneVerification from "./PhoneVerification";
-import Welcome from "./Welcome";
+import Signup from "./Signup";
 import SuccessRegister from "./SuccessRegister";
 import ChangePassword from "./ChangePassword";
 import LocationAccess from "./LocationAccess";
@@ -61,14 +61,14 @@ export {
     Onboarding2,
     Onboarding3,
     Onboarding4,
-    Signup,
+    PreSignup,
     Login,
     ForgotPassword,
     ResetPassword,
-    Verification,
+    Emailverification,
     StartUpScreen,
     PhoneVerification,
-    Welcome,
+    Signup,
     SuccessRegister,
     ChangePassword,
     LocationAccess,

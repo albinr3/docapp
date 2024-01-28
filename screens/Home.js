@@ -10,8 +10,12 @@ import HospitalCard from '../components/HospitalCard'
 import { ScrollView } from 'react-native-virtualized-view'
 import { markers } from '../data/mapData'
 import SpecialistCard from '../components/SpecialistCard'
+import { useVariables } from '../navigations/Context';
+
 
 const Home = ({ navigation }) => {
+  const { gps, setGps } = useVariables();
+  
   /**
    * Render Header
    */
