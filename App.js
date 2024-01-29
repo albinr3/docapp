@@ -10,7 +10,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 //Ignore all log notifications
 LogBox.ignoreAllLogs();
 
-console.log(process.env.EXPO_PUBLIC_APIKEY)
+
 SplashScreen.preventAutoHideAsync()
 
 export default function App() {

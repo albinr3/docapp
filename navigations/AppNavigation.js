@@ -54,7 +54,8 @@ import {
     VideoCall,
     Notifications,
     History,
-    BookAppointment
+    BookAppointment,
+    CameraQr
 } from '../screens'
 import { NavigationContainer } from '@react-navigation/native'
 import BottomTabNavigation from './BottomTabNavigation'
@@ -101,7 +102,11 @@ const AppNavigation = () => {
         <NavigationContainer>
             <Stack.Navigator 
                 screenOptions={{ headerShown: false }}
-                initialRouteName={isFirstLaunch ? 'Onboarding1' : 'Login'}>     
+                > 
+                {/* <Stack.Navigator 
+                screenOptions={{ headerShown: false }}
+                initialRouteName={isFirstLaunch ? 'Onboarding1' : 'Login'}>  */} 
+                <Stack.Screen name="CameraQr" component={CameraQr}/>
                 <Stack.Screen name="Onboarding1" component={Onboarding1}/>
                 <Stack.Screen name="Onboarding2" component={Onboarding2}/>
                 <Stack.Screen name="Onboarding3" component={Onboarding3}/>
@@ -109,6 +114,7 @@ const AppNavigation = () => {
                 <Stack.Screen name="PreSignup" component={PreSignup}/>
                 <Stack.Screen name="StartUpScreen" component={StartUpScreen}/>
                 <Stack.Screen name="Login" component={Login}/>
+                
                 <Stack.Screen name="ForgotPassword" component={ForgotPassword}/>
                 <Stack.Screen name="ResetPassword" component={ResetPassword}/>
                 <Stack.Screen name="Emailverification" component={Emailverification}/>

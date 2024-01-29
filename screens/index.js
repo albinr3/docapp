@@ -55,8 +55,10 @@ import MyAppointmentDetail from "./MyAppointmentDetail";
 import MyBookings from "./MyBookings";
 import VideoCall from "./VideoCall";
 import History from "./History";
+import CameraQr from "./CameraQr";
 
 export {
+    CameraQr,
     Onboarding1,
     Onboarding2,
     Onboarding3,
