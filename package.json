@@ -13,11 +13,16 @@
     "lint:fix": "eslint --fix ."
   },
   "dependencies": {
+    "@expo/webpack-config": "^19.0.1",
     "@react-native-async-storage/async-storage": "1.21.0",
     "@react-native-picker/picker": "^2.6.1",
     "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
+    "@teovilla/react-native-web-maps": "^0.9.4",
+    "core-js": "^3.35.1",
+    "crypto-browserify": "^3.12.0",
+    "customize-cra": "^1.0.0",
     "expo": "~50.0.4",
     "expo-checkbox": "~2.7.0",
     "expo-font": "~11.10.2",
@@ -40,13 +45,19 @@
     "react-native-screens": "~3.29.0",
     "react-native-tab-view": "^3.5.2",
     "react-native-virtualized-view": "^1.0.0",
-    "validate.js": "^0.13.1"
+    "react-native-web": "^0.19.10",
+    "stream": "^0.0.2",
+    "validate.js": "^0.13.1",
+    "webpack-merge": "^5.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "prettier": "^3.2.4"
+  },
+  "resolutions": {
+    "@expo/config-plugins": "~7.8.0"
   },
   "private": true
 }

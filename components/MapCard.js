@@ -1,13 +1,14 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
-import MapView, { Marker, Callout, PROVIDER_GOOGLE } from 'react-native-maps'
+import { MapView, Marker, Callout } from './mymap';
 import { icons } from '../constants'
 
-const MapCard = () => {
+ const MapCard = () => {
+    console.log("este es ", MapView)
     return (
         <MapView
             style={styles.map}
-            provider={PROVIDER_GOOGLE}
+            provider="google"
             initialRegion={{
                 latitude: 48.8566,
                 longitude: 2.3522,
@@ -43,7 +44,7 @@ const MapCard = () => {
             </Marker>
         </MapView>
     )
-}
+ }
 
 const styles = StyleSheet.create({
     map: {

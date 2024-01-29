@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
 import React, { useRef, useEffect, useReducer, useCallback, useState } from 'react'
-import MapView, { Marker, Callout, PROVIDER_GOOGLE } from 'react-native-maps'
+import { MapView, Marker, Callout } from '../components/mymap'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { icons, SIZES, COLORS, FONTS } from '../constants'
 import { Pressable } from 'react-native'
@@ -96,7 +96,7 @@ const AddNewAddress = ({ navigation }) => {
             </View>
             <MapView
                 style={styles.map}
-                provider={PROVIDER_GOOGLE}
+                provider="google"
                 initialRegion={{
                     latitude: 48.8566,
                     longitude: 2.3522,

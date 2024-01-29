@@ -12,7 +12,7 @@ import {
   Platform,
   StatusBar
 } from "react-native";
-import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import { MapView, Marker } from "../components/mymap";
 import { Ionicons } from "@expo/vector-icons";
 import { markers, mapDarkStyle, mapStandardStyle } from '../data/mapData';
 import StarRating2 from '../components/StarRating2';
@@ -131,7 +131,7 @@ const Explore = () => {
         ref={_map}
         initialRegion={state.region}
         style={styles.container}
-        provider={PROVIDER_GOOGLE}
+        provider="google"
         customMapStyle={theme.dark ? mapDarkStyle : mapStandardStyle}
       >
         {state.markers.map((marker, index) => {
