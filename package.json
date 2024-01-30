@@ -20,6 +20,8 @@
     "@react-navigation/native-stack": "^6.9.17",
     "@teovilla/react-native-web-maps": "^0.9.4",
     "expo": "~50.0.4",
+    "expo-barcode-scanner": "^12.9.2",
+    "expo-camera": "~14.0.3",
     "expo-checkbox": "~2.7.0",
     "expo-font": "~11.10.2",
     "expo-image-picker": "~14.7.1",
@@ -42,8 +44,7 @@
     "react-native-virtualized-view": "^1.0.0",
     "react-native-web": "^0.19.10",
     "validate.js": "^0.13.1",
-    "webpack-merge": "^5.10.0",
-    "expo-camera": "~14.0.3"
+    "webpack-merge": "^5.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
