@@ -4,8 +4,21 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import NotificationComponent from '../components/NotificationComponent'; // Asegúrate de que la ruta del import es correcta
 
+// Definir CameraView fuera del componente App
+const CameraView = ({ scanned, handleBarCodeScanned }) => {
+  const onBarCodeScanned = scanned ? undefined : handleBarCodeScanned;
+  return(
+    <View style={styles.cameraContainer}>
+    <BarCodeScanner
+      onBarCodeScanned={onBarCodeScanned}
+      style={StyleSheet.absoluteFillObject}
+    />
+    </View>
+  )
+  
+  };
 
-export default function App() {
+const CameraQr = ({navigation}) => {
   const [hasPermission, setHasPermission] = useState(false);
   const [scanned, setScanned] = useState(false);
   const [notification, setNotification] = useState('');
@@ -13,6 +26,7 @@ export default function App() {
   const handleBarCodeScanned = useCallback(({ type, data }) => {
     setScanned(true);
     setNotification(`Bar code with type ${type} and data ${data} has been scanned!`);
+    navigation.navigate("Login")
   }, []);
 
   useEffect(() => {
@@ -22,15 +36,6 @@ export default function App() {
     })();
   }, []);
 
-  // Desacoplamiento del renderizado de la cámara en su propio componente
-  const CameraView = () => (
-    <View style={styles.cameraContainer}>
-      <BarCodeScanner
-        onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-        style={StyleSheet.absoluteFillObject} // Mejora en el estilo para ocupar todo el contenedor
-      />
-    </View>
-  );
 
   if (!hasPermission) {
     // Renderizando un componente cuando no hay permisos
@@ -45,39 +50,59 @@ export default function App() {
     );
   }
 
-  // Intervalo para habilitar re-escaneo automáticamente
-  useEffect(() => {
-    let timeout;
-    if (scanned) {
-      timeout = setTimeout(() => {
-        setScanned(false);
-      }, 5000); // 5 segundos para el re-escaneo automático
-    }
-    return () => clearTimeout(timeout);
-  }, [scanned]);
+  // useEffect(() => {
+  //   let timeout;
+  
+  //   // Función para manejar el escaneo automático
+  //   const handleAutomaticScan = () => {
+  //     timeout = setTimeout(() => {
+  //       setScanned(false);
+  //     }, 5000); // 5 segundos para el re-escaneo automático
+  //   };
+  
+  //   // Lógica condicional para activar el escaneo automático
+  //   if (scanned) {
+  //     handleAutomaticScan();
+  //   }
+  
+  //   // Limpieza del timeout
+  //   return () => {
+  //     clearTimeout(timeout);
+  //   };
+  // }, [scanned]);
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome to the Barcode Scanner App!</Text>
       <Text style={styles.paragraph}>Scan a barcode to start your job.</Text>
-      <CameraView />
+      <CameraView scanned={scanned} handleBarCodeScanned={handleBarCodeScanned}/>
       <NotificationComponent
         message={notification}
         onDismiss={() => setNotification('')}
       />
-      // Resto de tu código...
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  // ... tus estilos previos aquí ...
-  buttonDisabled: {
-    backgroundColor: 'gray',
-  },
-  camera: {
+  container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
   },
-  // ... más estilos si son necesarios ...
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  paragraph: {
+    fontSize: 18,
+    marginBottom: 20,
+  },
+  cameraContainer: {
+    flex: 1,
+    width: '100%',
+  },
 });
-
+export default CameraQr;

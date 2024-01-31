@@ -2,18 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const NotificationComponent = ({ message, onDismiss }) => {
-  const [visible, setVisible] = useState(!!message);
+  const [visible, setVisible] = useState(false); // Inicializar como false
 
   useEffect(() => {
-    if(message) setVisible(true);
+    if (message) setVisible(true);
+    else setVisible(false); // Establecer visible en false si el mensaje es vacío
   }, [message]);
 
   const handleDismiss = () => {
     setVisible(false);
-    if(onDismiss) onDismiss();
+    if (onDismiss) onDismiss();
   };
 
-  if(!visible) return null;
+  if (!visible) return null;
 
   return (
     <View style={styles.notification}>
@@ -27,30 +28,13 @@ const NotificationComponent = ({ message, onDismiss }) => {
 
 const styles = StyleSheet.create({
   notification: {
-    position: 'absolute',
-    top: 30, // you can adjust the position accordingly
-    left: 0,
-    right: 0,
-    padding: 20,
-    backgroundColor: 'white', // choose the color that fits your app
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderColor: '#CCCCCC', // border color
-    borderWidth: 1,
-    borderRadius: 5,
-    shadowOpacity: 0.35,
-    shadowRadius: 5,
-    shadowColor: 'black',
-    shadowOffset: { height: 3, width: 3 },
-    elevation: 5, // for android shadow
+    // Estilos del componente
   },
   message: {
-    flex: 1,
+    // Estilos del mensaje
   },
   dismissText: {
-    color: '#0066FF',
-    fontWeight: 'bold',
+    // Estilos del botón Dismiss
   },
 });
 
