@@ -1,4 +1,4 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createNativeStackNavigator, HeaderBackButton } from '@react-navigation/native-stack'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import React, { useState, useEffect } from 'react'
 import { VariablesProvider } from './Context';
@@ -55,14 +55,17 @@ import {
     Notifications,
     History,
     BookAppointment,
-    CameraQr
+    CameraQr,
+    
 } from '../screens'
 import { NavigationContainer } from '@react-navigation/native'
 import BottomTabNavigation from './BottomTabNavigation'
+import { COLORS, FONTS } from '../constants';
+import { commonStyles } from '../styles/commonStyles';
 
 const Stack = createNativeStackNavigator()
 
-const AppNavigation = () => {
+const AppNavigation = ({navigation}) => {
     const [isFirstLaunch, setIsFirstLaunch] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -106,8 +109,26 @@ const AppNavigation = () => {
                 {/* <Stack.Navigator 
                 screenOptions={{ headerShown: false }}
                 initialRouteName={isFirstLaunch ? 'Onboarding1' : 'Login'}>  */} 
-                <Stack.Screen name="CameraQr" component={CameraQr}/>
+                
+
                 <Stack.Screen name="Onboarding1" component={Onboarding1}/>
+                <Stack.Screen name="CameraQr" component={CameraQr} 
+                    options={{ 
+                        headerShown: true, 
+                        title: "Scan QR code", 
+                        headerStyle: {
+                            backgroundColor: COLORS.primary, // Cambia el color de fondo aquí
+                        },
+                        headerTintColor: COLORS.white,
+                        headerTitleStyle: {
+                            ...FONTS.body2,
+                        },
+                        headerBackVisible: true,
+                        
+                        presentation: 'modal',
+                        animationTypeForReplace: 'push',
+                        animation:'slide_from_bottom'
+                    }}/>
                 <Stack.Screen name="Onboarding2" component={Onboarding2}/>
                 <Stack.Screen name="Onboarding3" component={Onboarding3}/>
                 <Stack.Screen name="Onboarding4" component={Onboarding4}/>

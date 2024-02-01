@@ -11,6 +11,7 @@ import { ScrollView } from 'react-native-virtualized-view'
 import { markers } from '../data/mapData'
 import SpecialistCard from '../components/SpecialistCard'
 import { useVariables } from '../navigations/Context';
+import { Ionicons } from "@expo/vector-icons"
 
 
 const Home = ({ navigation }) => {
@@ -38,18 +39,30 @@ const Home = ({ navigation }) => {
             />
           </View>
         </View>
-        <Pressable 
-          onPress={()=>navigation.navigate("Notifications")}
-          style={styles.notificationContainer}>
-          <View
-            style={styles.notificationMarker}
-          />
-          <Image
-            source={icons.bell}
-            resizeMode='contain'
-            style={styles.bellIcon}
-          />
-        </Pressable>
+        <View style={styles.headerButtonsContainer}>
+          <Pressable 
+            onPress={()=>navigation.navigate("CameraQr")}
+            style={styles.notificationContainer}>
+            <Ionicons
+              name="camera-outline"
+              size={32}
+              color={COLORS.black}
+            />
+          </Pressable>
+          <Pressable 
+            onPress={()=>navigation.navigate("Notifications")}
+            style={styles.notificationContainer}>
+            <View
+              style={styles.notificationMarker}
+            />
+            <Image
+              source={icons.bell}
+              resizeMode='contain'
+              style={styles.bellIcon}
+            />
+          </Pressable>
+        </View>
+        
       </View>
     )
   }
@@ -301,6 +314,11 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.gray,
     alignItems: "center",
     justifyContent: "center",
+    marginLeft: 15
+  },
+
+  headerButtonsContainer: {
+    flexDirection: "row",
   },
   bellIcon: {
     height: 24,
