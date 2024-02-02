@@ -10,10 +10,10 @@ import { COLORS, images } from '../constants';
 const Onboarding1 = ({navigation}) => {
   const [progress, setProgress] = useState(0);
 
-  // First useEffect
+  // First useEffectM
   useEffect(() => {
     if (progress >= 1) {
-      navigation.navigate('Main');
+      navigation.navigate("Faqs");
     } else {
       // This should ensure that the dot is marked as active after 2 seconds
       const timer = setTimeout(() => {

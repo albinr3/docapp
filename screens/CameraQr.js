@@ -1,6 +1,9 @@
 // Imports from React and React Native packages necessary for the functionality of the app
 import { useState, useEffect, useCallback } from 'react';
-import { StyleSheet, Text, SafeAreaView, StatusBar, View, Dimensions } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context'
+
+//import { StyleSheet, Text, SafeAreaView, StatusBar, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, StatusBar, View, Dimensions } from 'react-native';
 import { Camera } from 'expo-camera'; // Importing Camera module from expo-camera for camera functionality
 import { COLORS } from '../constants'; // Importing predefined color constants
 
@@ -100,7 +103,7 @@ const styles = StyleSheet.create({
     
   },
   textContainer: {
-    marginTop: 60,
+
     justifyContent: 'center', 
     alignItems: 'center',
     height: 80

@@ -1,10 +1,17 @@
-import { View, Text, Pressable, Image, LayoutAnimation, StyleSheet } from 'react-native'
+import { View, Text, Pressable, Image, LayoutAnimation, StyleSheet, Platform, UIManager } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, SIZES, icons } from '../constants'
 import { commonStyles } from '../styles/commonStyles'
 import { ScrollView } from 'react-native-virtualized-view'
 import Button from '../components/Button'
+
+if (
+  Platform.OS === 'android' &&
+  UIManager.setLayoutAnimationEnabledExperimental
+) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
 
 const Faqs = ({ navigation }) => {
   /**
@@ -86,7 +93,10 @@ const Faqs = ({ navigation }) => {
     ];
 
     const toggleExpand = (index) => {
-      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+      LayoutAnimation.configureNext({
+        duration: 200,
+        create: {type: 'easeInEaseOut', property: 'scaleXY'},
+      });;
       if (expanded === index) {
         setExpanded(-1);
       } else {
@@ -187,7 +197,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingBottom: 10,
     fontFamily: "regular",
-    color: '#666',
+    color: COLORS.gray5,
   },
 });
 
