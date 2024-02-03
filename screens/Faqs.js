@@ -1,4 +1,4 @@
-import { View, Text, Pressable, Image, LayoutAnimation, StyleSheet, Platform, UIManager } from 'react-native'
+import { View, Text, Pressable, Image, StyleSheet,  } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, SIZES, icons } from '../constants'
@@ -6,12 +6,6 @@ import { commonStyles } from '../styles/commonStyles'
 import { ScrollView } from 'react-native-virtualized-view'
 import Button from '../components/Button'
 
-if (
-  Platform.OS === 'android' &&
-  UIManager.setLayoutAnimationEnabledExperimental
-) {
-  UIManager.setLayoutAnimationEnabledExperimental(true);
-}
 
 const Faqs = ({ navigation }) => {
   /**
@@ -44,7 +38,7 @@ const Faqs = ({ navigation }) => {
    */
 
   function renderFAQS() {
-    const [expanded, setExpanded] = useState(-1);
+    const [expanded, setExpanded] = useState({});
     const faqs = [
       {
         question: 'How do I book an appointment with a doctor?',
@@ -93,15 +87,10 @@ const Faqs = ({ navigation }) => {
     ];
 
     const toggleExpand = (index) => {
-      LayoutAnimation.configureNext({
-        duration: 200,
-        create: {type: 'easeInEaseOut', property: 'scaleXY'},
-      });;
-      if (expanded === index) {
-        setExpanded(-1);
-      } else {
-        setExpanded(index);
-      }
+      setExpanded(currentExpanded => ({
+        ...currentExpanded,
+        [index]: !currentExpanded[index],
+      }));
     };
 
     return (
@@ -111,10 +100,10 @@ const Faqs = ({ navigation }) => {
             <Pressable onPress={() => toggleExpand(index)} activeOpacity={0.8}>
               <View style={styles.questionContainer}>
                 <Text style={styles.question}>{faq.question}</Text>
-                <Text style={styles.icon}>{expanded === index ? '-' : '+'}</Text>
+                <Text style={styles.icon}>{expanded[index] ? '-' : '+'}</Text>
               </View>
             </Pressable>
-            {expanded === index && <Text style={styles.answer}>{faq.answer}</Text>}
+            {expanded[index] && <Text style={styles.answer}>{faq.answer}</Text>}
           </View>
         ))}
       </View>
