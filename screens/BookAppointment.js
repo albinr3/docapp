@@ -1,9 +1,10 @@
-import { View, Text, StyleSheet, Pressable, Image, FlatList } from 'react-native'
+import { View, Text, StyleSheet, Pressable, Image, FlatList, TextInput } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, SIZES, icons, images } from '../constants'
 import { ScrollView } from 'react-native-virtualized-view'
 import FeatureItem from '../components/FeatureItem'
+import DoctorHeader from '../components/DoctorHeader'
 
 const BookAppointment = ({ navigation }) => {
   /**
@@ -82,52 +83,7 @@ const BookAppointment = ({ navigation }) => {
 
     return (
       <View>
-        <View style={styles.doctorInfoContainer}>
-          <View>
-            <Pressable>
-              <Image
-                source={images.doctor1}
-                resizeMode='contain'
-                style={styles.avatar}
-              />
-              <View style={styles.verified}>
-                <Image
-                  source={icons.verified}
-                  resizeMode='contain'
-                  style={{
-                    height: 24,
-                    width: 24
-                  }}
-                />
-              </View>
-            </Pressable>
-          </View>
-          <View style={{ marginLeft: 16 }}>
-            <Text style={styles.doctorName}>Dr. Jonny Wilson</Text>
-            <Text style={styles.doctorPosition}>Dentist</Text>
-            <View style={styles.locationContainer}>
-              <Image
-                source={icons.maps}
-                resizeMode='contain'
-                style={{
-                  height: 16,
-                  width: 16,
-                  tintColor: COLORS.primary
-                }}
-              />
-              <Text style={[styles.doctorPosition, { marginHorizontal: 4 }]}>New York, United States</Text>
-              <Image
-                source={icons.direction}
-                resizeMode='contain'
-                style={{
-                  height: 20,
-                  width: 20,
-                  tintColor: COLORS.primary
-                }}
-              />
-            </View>
-          </View>
-        </View>
+        <DoctorHeader/>
         <View style={styles.separateLine} />
         <View style={styles.featureContainer}>
           <FeatureItem
@@ -173,6 +129,18 @@ const BookAppointment = ({ navigation }) => {
   }
 
   /**
+     * Render custom schedule button
+     */
+  const renderCustomSchedule = () => {
+    return (
+      <View style={styles.customContainer}>
+        <Text>Want a custom schedule?</Text>
+        <Pressable><Text style={styles.textCustomSchedule}>Request Schedule</Text></Pressable>
+      </View>
+    )
+  }
+
+  /**
      * Render Appointment buttons
      */
   const renderAppointmentButton = () => {
@@ -193,8 +161,11 @@ const BookAppointment = ({ navigation }) => {
         {renderHeader()}
         <ScrollView>
           {renderContent()}
+          {renderCustomSchedule()}
         </ScrollView>
+        
       </View>
+      
       {renderAppointmentButton()}
     </SafeAreaView>
   )
@@ -203,12 +174,14 @@ const BookAppointment = ({ navigation }) => {
 const styles = StyleSheet.create({
   area: {
     flex: 1,
-    backgroundColor: COLORS.white
+    backgroundColor: COLORS.white,
+    
   },
   container: {
     flex: 1,
     backgroundColor: COLORS.white,
-    padding: 12
+    padding: 12,
+    
   },
   headerContainer: {
     flexDirection: "row",
@@ -236,7 +209,7 @@ const styles = StyleSheet.create({
     tintColor: COLORS.black
   },
   doctorDetails: {
-    fontSize: 14,
+    fontSize: 18,
     fontFamily: "medium",
     color: COLORS.black
   },
@@ -285,7 +258,8 @@ const styles = StyleSheet.create({
   featureContainer: {
     width: "100%",
     justifyContent: "space-between",
-    flexDirection: "row"
+    flexDirection: "row",
+    marginTop: 6
   },
   h4: {
     fontSize: 16,
@@ -301,15 +275,16 @@ const styles = StyleSheet.create({
     marginVertical: 12
   },
   subName: {
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: "medium",
     color: COLORS.black,
-    marginVertical: 6
+    marginVertical: 10
+
   },
   dayItem: {
     paddingHorizontal: 16,
     paddingVertical: 16,
-    marginHorizontal: 5,
+    marginRight: 10,
     borderRadius: 24,
     borderColor: "rgba(0,0,0,0.5)",
     borderWidth: .3
@@ -321,7 +296,7 @@ const styles = StyleSheet.create({
   hourItem: {
     paddingHorizontal: 16,
     paddingVertical: 16,
-    marginHorizontal: 5,
+    marginRight: 10,
     borderRadius: 24,
     borderColor: "rgba(0,0,0,0.5)",
     borderWidth: .3
@@ -337,6 +312,20 @@ const styles = StyleSheet.create({
   selectedText: {
     color: 'white',
     fontSize: 16,
+  },
+  customContainer: {
+    flexDirection: "row",
+    width: "100%",
+    padding: 10,
+    backgroundColor: COLORS.gray,
+    height: 38,
+    justifyContent: "space-between",
+    borderRadius: 16,
+    marginTop: 24,
+    
+  },
+  textCustomSchedule:{
+    color: "#1DBAB5"
   },
   btnContainer: {
     position: "absolute",

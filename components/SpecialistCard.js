@@ -42,7 +42,7 @@ const SpecialistCard = ({ image, type, name, position, rating, numReviews }) => 
                     </View>
                     <Text style={styles.name}>{name}</Text>
                     <Text style={{
-                        fontSize: 12,
+                        fontSize: 14,
                         fontFamily: "regular",
                         color: "gray"
                     }}>{position}</Text>
@@ -54,7 +54,7 @@ const SpecialistCard = ({ image, type, name, position, rating, numReviews }) => 
                         <ReviewStars review={rating} />
                         <Text style={{ fontFamily: "medium", marginLeft: 3 }}>{rating}</Text>
                         <Text style={{
-                            fontSize: 12,
+                            fontSize: 14,
                             fontFamily: "regular",
                             color: "gray"
                         }}>   |  {numReviews} reviews</Text>
@@ -62,7 +62,7 @@ const SpecialistCard = ({ image, type, name, position, rating, numReviews }) => 
 
                 </View>
             </View>
-            <Pressable style={styles.btnContainer}>
+            <Pressable onPress={() => navigation.navigate("BookAppointmemt")} style={styles.btnContainer}>
                 <Text style={styles.btnText}>Make Appointment</Text>
             </Pressable>
         </Pressable>
@@ -88,8 +88,8 @@ const styles = StyleSheet.create({
           height: 2,
         },
         shadowOpacity: 0.2,
-        shadowRadius: 3.84,
-        elevation: 4,
+        shadowRadius:4,
+        elevation: 2,
         padding: 16,
         backgroundColor: COLORS.white
     },
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     btnText: {
-        fontSize: 14,
+        fontSize: 15,
         fontFamily: "medium",
         color: COLORS.primary
     },
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
         borderRadius: 6
     },
     verifiedText: {
-        fontSize: 10,
+        fontSize: 12,
         color: COLORS.primary,
         fontFamily: "medium",
         marginLeft: 2
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
         right: 10
     },
     name: {
-        fontSize: 14,
+        fontSize: 16,
         fontFamily: "medium",
         color: COLORS.black
     }

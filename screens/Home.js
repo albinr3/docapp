@@ -148,7 +148,7 @@ const Home = ({ navigation }) => {
             flexDirection: "row",
             alignItems: "center",
           }}>
-            <Text style={styles.headerSectionTitle}>Doctor speciality</Text>
+            <Text style={styles.headerSectionTitle}>Doctor Speciality</Text>
           </View>
           <Pressable
             onPress={() => navigation.navigate("Category")}
@@ -297,7 +297,7 @@ const styles = StyleSheet.create({
     tintColor: COLORS.primary
   },
   locationText: {
-    fontSize: 14,
+    fontSize: 16,
     fontFamily: "medium",
     color: COLORS.black,
     marginHorizontal: 4
@@ -367,7 +367,7 @@ const styles = StyleSheet.create({
   headerSectionContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginVertical: 10
+    marginVertical: 12
   },
   upcommingNumContainer: {
     height: 22,
@@ -379,12 +379,12 @@ const styles = StyleSheet.create({
     marginLeft: 8
   },
   upcommingNum: {
-    fontSize: 8,
+    fontSize: 11,
     color: COLORS.white,
     fontFamily: "regular"
   },
   headerSectionTitle: {
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: "medium",
     color: COLORS.black
   },

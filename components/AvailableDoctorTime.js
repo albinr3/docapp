@@ -44,12 +44,13 @@ const styles = StyleSheet.create({
         width: "100%"
     },
     day: {
-        fontSize: 12,
+        fontSize: 16,
         fontFamily: "regular",
-        color: "gray"
+        color: "gray",
+        marginBottom: 6
     },
     time: {
-        fontSize: 12,
+        fontSize: 16,
         fontFamily: "medium",
         color: COLORS.black
     },

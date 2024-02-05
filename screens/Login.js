@@ -2,7 +2,7 @@ import { View, Text, Pressable, Image, ImageBackground, StatusBar } from 'react-
 import React, { useState, useReducer, useEffect, useCallback } from 'react'
 import { COLORS, FONTS, images, icons } from '../constants'
 import Checkbox from 'expo-checkbox'
-import * as Animatable from "react-native-animatable"
+import Animatable, {BounceInDown} from "react-native-reanimated"
 import Input from '../components/Input'
 import Button from '../components/Button'
 import { validateInput } from '../utils/actions/formActions'
@@ -67,7 +67,7 @@ const Login = ({ navigation }) => {
                     style={commonStyles.subHeaderTitle}>Please sign in to your existing account</Text>
             </View>
             <Animatable.View
-                animation="fadeInUpBig"
+                entering={BounceInDown}
                 style={commonStyles.footer}>
                 <Text style={commonStyles.inputHeader}>Email</Text>
                 <Input

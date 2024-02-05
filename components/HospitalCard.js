@@ -26,7 +26,7 @@ const HospitalCard = ({ image, rating, name, distance, time }) => {
                 resizeMode='cover'
                 style={styles.image}
             />
-            <View style={{ marginTop: 4 }}>
+            <View style={{ marginTop: 4, paddingHorizontal: 6,  }}>
                 <Text style={styles.title}>{name}</Text>
                 <View style={{
                     flexDirection: "row",

@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, Pressable, Image } from 'react-native'
 import React, { useState } from 'react'
 import { COLORS, SIZES } from '../constants'
 import { AntDesign, FontAwesome, Ionicons } from "@expo/vector-icons"
+import SeparateLine from "./SeparateLine"
 
 const NearbyHospitalCard = ({ image, rating, name, distance, time, specialties, address, reviews }) => {
     const [isLiked, setIsLiked] = useState(false)
@@ -22,11 +23,10 @@ const NearbyHospitalCard = ({ image, rating, name, distance, time, specialties, 
                 resizeMode='cover'
                 style={styles.image}
             />
-            <View style={{
-                paddingHorizontal: 4
-            }}>
+            <View style={styles.hospitalInfo}>
                 <Text style={styles.title}>{name}</Text>
                 <Text style={styles.subtitle}>{specialties.join(', ')}</Text>
+                <SeparateLine/>
                 <View style={{
                     flexDirection: "row",
                     alignItems: "center",
@@ -39,7 +39,7 @@ const NearbyHospitalCard = ({ image, rating, name, distance, time, specialties, 
                     flexDirection: "row",
                     alignItems: "center"
                 }}>
-                    <AntDesign name="clockcircle" size={16} color={COLORS.primary} />
+                    <AntDesign name="clockcircle" size={16} color={COLORS.primary} style={{marginRight:2}} />
                     <Text style={styles.subtitle}>{time} - {distance}Km</Text>
                 </View>
             </View>
@@ -50,15 +50,24 @@ const NearbyHospitalCard = ({ image, rating, name, distance, time, specialties, 
 const styles = StyleSheet.create({
     container: {
         marginRight: 12,
-        height: 260,
+        height: 295,
         width: SIZES.width - 24,
         borderRadius: 12,
-        flexDirection: "column",
         borderColor: COLORS.gray,
         borderWidth: 1,
         marginRight: 16,
         marginBottom: 12,
-        paddingBottom: 12
+        paddingBottom: 12,
+        backgroundColor: '#fff',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.20,
+        shadowRadius: 1.41,
+        
+        elevation: 2,
     },
     image: {
         width: "100%",
@@ -70,13 +79,12 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontFamily: "bold",
         color: COLORS.black,
-        marginVertical: 6,
+        marginVertical: 6
     },
     subtitle: {
         fontSize: 14,
         fontFamily: "regular",
-        color: "gray",
-        marginLeft: 4
+        color: "gray"
     },
     reviewContainer: {
         flexDirection: "row",
@@ -115,6 +123,11 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontFamily: "regular",
         color: "gray"
+    },
+    hospitalInfo: {
+        paddingHorizontal: 4,
+        paddingVertical: 4,
+        marginLeft: 4
     }
 })
 

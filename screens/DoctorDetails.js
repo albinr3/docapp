@@ -9,6 +9,7 @@ import { ScrollView } from 'react-native-virtualized-view'
 import MapCard from '../components/MapCard'
 import { hospitalReviews } from '../data/utils'
 import ReviewCard from '../components/ReviewCard'
+import DoctorHeader from '../components/DoctorHeader'
 
 const DoctorDetails = ({ navigation }) => {
     /***
@@ -58,54 +59,8 @@ const DoctorDetails = ({ navigation }) => {
         };
         return (
             <View>
-                <View style={styles.doctorInfoContainer}>
-                    <View>
-                        <Pressable>
-                            <Image
-                                source={images.doctor1}
-                                resizeMode='contain'
-                                style={styles.avatar}
-                            />
-                            <View style={styles.verified}>
-                                <Image
-                                    source={icons.verified}
-                                    resizeMode='contain'
-                                    style={{
-                                        height: 24,
-                                        width: 24
-                                    }}
-                                />
-                            </View>
-                        </Pressable>
-                    </View>
-                    <View style={{
-                        marginLeft: 16
-                    }}>
-                        <Text style={styles.doctorName}>Dr. Jonny Wilson</Text>
-                        <Text style={styles.doctorPosition}>Dentist</Text>
-                        <View style={styles.locationContainer}>
-                            <Image
-                                source={icons.maps}
-                                resizeMode='contain'
-                                style={{
-                                    height: 16,
-                                    width: 16,
-                                    tintColor: COLORS.primary
-                                }}
-                            />
-                            <Text style={[styles.doctorPosition, { marginHorizontal: 4 }]}>New York, United States</Text>
-                            <Image
-                                source={icons.direction}
-                                resizeMode='contain'
-                                style={{
-                                    height: 20,
-                                    width: 20,
-                                    tintColor: COLORS.primary
-                                }}
-                            />
-                        </View>
-                    </View>
-                </View>
+                <DoctorHeader/>
+            
                 <View style={styles.separateLine} />
                 <View style={styles.featureContainer}>
                     <FeatureItem
@@ -131,7 +86,7 @@ const DoctorDetails = ({ navigation }) => {
                     />
                 </View>
                 <Text style={styles.h4}>About</Text>
-                <View style={styles.separateLine2} />
+                {/* <View style={styles.separateLine2} /> */}
                 <Text style={styles.description}>
                     {showFullDescription ? description : `${description.slice(0, 100)}...`}
                 </Text>
@@ -240,7 +195,7 @@ const styles = StyleSheet.create({
         borderWidth: 1
     },
     doctorDetails: {
-        fontSize: 14,
+        fontSize: 16,
         fontFamily: "medium",
         color: COLORS.black
     },
@@ -250,8 +205,8 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     avatar: {
-        height: 84,
-        width: 84,
+        height: 94,
+        width: 94,
         borderRadius: 999
     },
     verified: {
@@ -261,16 +216,17 @@ const styles = StyleSheet.create({
         zIndex: 999
     },
     doctorName: {
-        fontSize: 14,
+        fontSize: 18,
         fontFamily: "medium",
         color: COLORS.black
     },
     doctorPosition: {
-        fontSize: 14,
+        fontSize: 16,
         fontFamily: "regular",
         color: "gray"
     },
     locationContainer: {
+        marginTop: 5,
         flexDirection: "row",
         alignItems: "center"
     },
@@ -289,23 +245,27 @@ const styles = StyleSheet.create({
     featureContainer: {
         width: "100%",
         justifyContent: "space-between",
-        flexDirection: "row"
+        flexDirection: "row",
+        marginVertical: 10
     },
     h4: {
-        fontSize: 16,
+        fontSize: 18,
         fontFamily: "medium",
         color: COLORS.black,
-        marginVertical: 6
+        marginTop: 8,
+        marginBottom: 4
     },
     description: {
-        fontSize: 12,
+        fontSize: 15,
         color: "gray",
-        fontFamily: "regular"
+        fontFamily: "regular",
+        
     },
     descriptionBtn: {
         color: COLORS.primary,
         fontSize: 14,
-        fontFamily: "medium"
+        fontFamily: "medium",
+        marginBottom: 10
     },
     subname: {
         fontSize: 14,
@@ -320,7 +280,8 @@ const styles = StyleSheet.create({
     },
     subIconContainer: {
         flexDirection: "row",
-        alignItems: "center"
+        alignItems: "center",
+        marginBottom: 8
     },
     btnContainer: {
         position: "absolute",

@@ -1,11 +1,11 @@
 import { View, Text, Pressable, Image, StyleSheet,  } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, SIZES, icons } from '../constants'
 import { commonStyles } from '../styles/commonStyles'
 import { ScrollView } from 'react-native-virtualized-view'
 import Button from '../components/Button'
-
+import Animated, { FadeInDown, FadeOutUp } from "react-native-reanimated"
 
 const Faqs = ({ navigation }) => {
   /**
@@ -93,9 +93,9 @@ const Faqs = ({ navigation }) => {
       }));
     };
 
-    return (
-      <View style={styles.container}>
-        {faqs.map((faq, index) => (
+    const memoizedFAQs = useMemo( //I use useMemo to increase performance
+      () =>
+        faqs.map((faq, index) => (
           <View key={index} style={styles.faqContainer}>
             <Pressable onPress={() => toggleExpand(index)} activeOpacity={0.8}>
               <View style={styles.questionContainer}>
@@ -103,11 +103,21 @@ const Faqs = ({ navigation }) => {
                 <Text style={styles.icon}>{expanded[index] ? '-' : '+'}</Text>
               </View>
             </Pressable>
-            {expanded[index] && <Text style={styles.answer}>{faq.answer}</Text>}
+            {expanded[index] && (
+              <Animated.Text
+                entering={FadeInDown}
+                exiting={FadeOutUp.duration(200)}
+                style={styles.answer}>
+                {faq.answer}
+              </Animated.Text>
+            )}
           </View>
-        ))}
-      </View>
-    )
+        )),
+      [expanded]
+    );
+
+    return <View style={styles.container}>{memoizedFAQs}</View>;
+    
   }
 
   /**Render Button to ask question */
@@ -118,10 +128,9 @@ const Faqs = ({ navigation }) => {
         title="ASK QUESTION"
         onPress={() => navigation.navigate("SubmitQuestion")}
         filled
-        style={{
-          width: SIZES.width - 32,
-          marginVertical: 12
-        }}
+        style={
+          commonStyles.btn3
+        }
       />
     )
   }

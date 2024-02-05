@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
         marginVertical: 6
     },
     description: {
-        fontSize: 12,
+        fontSize: 13,
         fontFamily: "regular",
         marginTop: 6
     }

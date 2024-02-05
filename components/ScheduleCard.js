@@ -20,12 +20,12 @@ const ScheduleCard = ({ doctorName, doctorAvatar, type, date, starHour, endHour 
                         marginLeft: 12
                     }}>
                         <Text style={{
-                            fontSize: 13,
+                            fontSize: 15,
                             fontFamily: "medium",
                             color: COLORS.white
                         }}>{doctorName}</Text>
                         <Text style={{
-                            fontSize: 13,
+                            fontSize: 15,
                             fontFamily: "regular",
                             color: COLORS.white
                         }}>{type}</Text>
@@ -63,8 +63,10 @@ const styles = StyleSheet.create({
         height: 132,
         borderRadius: 8,
         backgroundColor: COLORS.primary,
-        padding: 8,
-        marginRight: 12
+        padding: 14,
+        marginRight: 12,
+        marginTop: 4,
+        marginBottom: 6
     },
     doctorInfoContainer: {
         flexDirection: "row",

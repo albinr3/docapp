@@ -4,7 +4,7 @@ import { MapView, Marker, Callout } from './mymap';
 import { icons } from '../constants'
 
  const MapCard = () => {
-    console.log("este es ", MapView)
+    
     return (
         <MapView
             style={styles.map}
@@ -49,7 +49,8 @@ import { icons } from '../constants'
 const styles = StyleSheet.create({
     map: {
         height: 152,
-        zIndex: 1
+        zIndex: 1,
+        marginVertical: 5
     },
     // Callout bubble
     bubble: {

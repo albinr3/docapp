@@ -71,6 +71,11 @@ export const commonStyles = StyleSheet.create({
         width: SIZES.width - 44,
         marginVertical: SIZES.padding,
     },
+    btn3:{
+        width: "100%",
+        marginBottom: SIZES.padding,
+        fontSize: SIZES.body4
+    },
     center:{
         flexDirection: 'row',
         alignItems: 'center', 

@@ -13,7 +13,7 @@ const Onboarding1 = ({navigation}) => {
   // First useEffectM
   useEffect(() => {
     if (progress >= 1) {
-      navigation.navigate("Faqs");
+      navigation.navigate("Login");
     } else {
       // This should ensure that the dot is marked as active after 2 seconds
       const timer = setTimeout(() => {

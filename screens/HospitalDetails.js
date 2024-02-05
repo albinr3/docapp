@@ -10,6 +10,7 @@ import { gallery, hospitalReviews, specialists } from '../data/utils'
 import SpecialistCard from '../components/SpecialistCard'
 import ReviewCard from '../components/ReviewCard'
 import MapCard from '../components/MapCard'
+import AvailableDoctorTime from '../components/AvailableDoctorTime'
 
 const AboutRoute = () => (
     <ScrollView style={{ flex: 1, backgroundColor: COLORS.white, padding: 12 }}>
@@ -19,34 +20,7 @@ const AboutRoute = () => (
             support your path to wellness</Text>
         <Text style={styles.h4}>Working Hours</Text>
         <View style={styles.separateLine2} />
-        <View style={styles.hourContainer}>
-            <Text style={styles.day}>Monday</Text>
-            <Text style={styles.time}>09:00 - 22:00</Text>
-        </View>
-        <View style={styles.hourContainer}>
-            <Text style={styles.day}>Tuesday</Text>
-            <Text style={styles.time}>09:00 - 22:00</Text>
-        </View>
-        <View style={styles.hourContainer}>
-            <Text style={styles.day}>Wednesday</Text>
-            <Text style={styles.time}>09:00 - 22:00</Text>
-        </View>
-        <View style={styles.hourContainer}>
-            <Text style={styles.day}>Thursday</Text>
-            <Text style={styles.time}>09:00 - 22:00</Text>
-        </View>
-        <View style={styles.hourContainer}>
-            <Text style={styles.day}>Friday</Text>
-            <Text style={styles.time}>09:00 - 22:00</Text>
-        </View>
-        <View style={styles.hourContainer}>
-            <Text style={styles.day}>Saturday</Text>
-            <Text style={styles.time}>09:00 - 22:00</Text>
-        </View>
-        <View style={styles.hourContainer}>
-            <Text style={styles.day}>Sunday</Text>
-            <Text style={styles.time}>09:00 - 14:00</Text>
-        </View>
+        <AvailableDoctorTime/>
         <Text style={styles.h4}>Address</Text>
         <View style={styles.separateLine2} />
         <View style={styles.subIconContainer}>
@@ -64,7 +38,7 @@ const AboutRoute = () => (
 const SpecialistRoute = () => (
     <View style={{ flex: 1, backgroundColor: COLORS.white }}>
         <View style={{ flexDirection: "row", marginLeft: 8 }}>
-            <Text style={styles.h4}>About</Text>
+            <Text style={styles.h4}>Specialist</Text>
             <Text style={[styles.h4, { color: COLORS.primary, marginLeft: 4 }]}>({specialists.length})</Text>
         </View>
         <FlatList
@@ -169,7 +143,7 @@ const HospitalDetails = ({ navigation }) => {
                 backgroundColor: '#fff',
             }}
             renderLabel={({ route, focused, color }) => (
-                <Text style={[{ color: focused ? COLORS.black : 'gray' }]}>
+                <Text style={[{ color: focused ? COLORS.black : 'gray', }]}>
                     {route.title}
                 </Text>
             )}
@@ -365,7 +339,8 @@ const styles = StyleSheet.create({
     subname: {
         fontSize: 14,
         fontFamily: "regular",
-        color: "gray"
+        color: "gray",
+        marginVertical: 1
     },
     subIcon: {
         height: 14,
@@ -390,13 +365,13 @@ const styles = StyleSheet.create({
         marginBottom: 6
     },
     h4: {
-        fontSize: 16,
+        fontSize: 18,
         fontFamily: "medium",
         color: COLORS.black,
         marginVertical: 6
     },
     description: {
-        fontSize: 12,
+        fontSize: 15,
         color: "gray",
         fontFamily: "regular"
     },
