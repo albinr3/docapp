@@ -4,6 +4,7 @@ import { ScrollView } from 'react-native-virtualized-view'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { COLORS, icons } from "../constants"
 import { doctorConsultationBookings } from '../data/utils'
+import SeparateLine from "../components/SeparateLine"
 
 const MyBookings = ({ navigation }) => {
   /**
@@ -38,6 +39,71 @@ const MyBookings = ({ navigation }) => {
     )
   }
 
+  const AppointmentBlock = ({
+    appointmentDate, 
+    appointmentTime, 
+    status,
+    doctorAvatar, 
+    doctorName,
+    address,
+    transactionId
+  }) => {
+    return (
+    <View style={styles.appointmentContainer}>
+      <View style={styles.bookingContainer}>
+        <Text style={styles.type}>{appointmentDate} - {appointmentTime}</Text>
+        <Text style={{
+          fontSize: 14,
+          fontFamily: "bold",
+          color: status == "Confirmed" ? COLORS.green : COLORS.red,
+          marginLeft: 12
+        }}>{status}</Text>
+      </View>
+      
+      <View style={{
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+      }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <Image
+            source={doctorAvatar}
+            style={styles.doctorAvatar}
+          />
+          <View style={{ marginLeft: 12 }}>
+            <Text style={styles.name}>{doctorName}</Text>
+            <View style={{
+              alignItems: 'flex-start',
+              marginTop: 4
+            }}>
+              <Text style={{ fontSize: 14, fontFamily: "regular", color: COLORS.secondaryGray }}>{address}</Text>
+              <View style={{flexDirection: "row"}}>
+                <Text style={{ fontSize: 14, fontFamily: "regular", color: COLORS.secondaryGray }}>Booking ID: </Text>
+                <Text style={{color: COLORS.secondary}}>{transactionId}</Text>
+              </View>
+              
+            </View>
+          </View>
+        </View>
+        <Text style={styles.transactionId}></Text>
+      </View>
+      <SeparateLine thin = {true}/>
+      <View style={styles.historyBottom}>
+        <Pressable
+          onPress={() => navigation.navigate("CancelAppointment")}
+          style={styles.rateContainer}>
+          <Text style={styles.rate}>Cancel</Text>
+        </Pressable>
+        <Pressable
+          onPress={() => navigation.navigate("MyAppointmentDetail")}
+          style={styles.viewContainer}>
+          <Text style={styles.view}>View</Text>
+        </Pressable>
+      </View>
+    </View>
+  )
+    
+  }
+
   /**
    * Render content
    */
@@ -49,53 +115,17 @@ const MyBookings = ({ navigation }) => {
           data={doctorConsultationBookings}
           keyExtractor={item => item.id}
           renderItem={({ item, index }) => (
-            <View style={{ flexDirection: 'column' }}>
-              <View style={styles.bookingContainer}>
-                <Text style={styles.type}>{item.specialization}</Text>
-                <Text style={{
-                  fontSize: 14,
-                  fontFamily: "bold",
-                  color: item.status == "Confirmed" ? COLORS.green : COLORS.red,
-                  marginLeft: 12
-                }}>{item.status}</Text>
-              </View>
-              <View style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between'
-              }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <Image
-                    source={item.doctorAvatar}
-                    style={styles.doctorAvatar}
-                  />
-                  <View style={{ marginLeft: 12 }}>
-                    <Text style={styles.name}>{item.doctorName}</Text>
-                    <View style={{
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      marginTop: 4
-                    }}>
-                      <Text style={{ fontSize: 14, fontFamily: "bold" }}>${item.price}</Text>
-                      <Text style={{ fontSize: 12, fontFamily: "regular", marginHorizontal: 2 }}> | {item.appointmentDate}</Text>
-                      <Text style={{ fontSize: 12, fontFamily: "regular" }}> | {item.appointmentTime}</Text>
-                    </View>
-                  </View>
-                </View>
-                <Text style={styles.transactionId}>{item.transactionId}</Text>
-              </View>
-              <View style={styles.historyBottom}>
-                <Pressable
-                  onPress={() => navigation.navigate("CancelAppointment")}
-                  style={styles.rateContainer}>
-                  <Text style={styles.rate}>Cancel</Text>
-                </Pressable>
-                <Pressable
-                  onPress={() => navigation.navigate("MyAppointmentDetail")}
-                  style={styles.viewContainer}>
-                  <Text style={styles.view}>View</Text>
-                </Pressable>
-              </View>
-            </View>
+            <AppointmentBlock 
+            appointmentDate={item.appointmentDate} 
+            appointmentTime={item.appointmentTime}
+            status={item.status}
+            doctorAvatar={item.doctorAvatar}
+            doctorName={item.doctorName}
+            price={item.price}
+            transactionId={item.transactionId}
+            address={item.address}
+            
+            />
           )}
         />
       </View>
@@ -124,6 +154,23 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.white,
     padding: 12
+  },
+  appointmentContainer: { 
+    flexDirection: 'column', 
+    margin: 10,
+    paddingVertical: 8,
+    paddingHorizontal:12,
+    borderRadius: 10,
+    backgroundColor: COLORS.white,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 1.0,
+
+    elevation: 10,
   },
   headerContainer: {
     flexDirection: "row",
@@ -162,8 +209,8 @@ const styles = StyleSheet.create({
     fontFamily: "bold"
   },
   doctorAvatar: {
-    height: 60,
-    width: 60,
+    height: 80,
+    width: 80,
     borderRadius: 8
   },
   viewContainer: {

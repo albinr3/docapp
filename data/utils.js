@@ -453,6 +453,7 @@ export const doctorConsultationBookings = [
         specialization: 'Cardiologist',
         appointmentDate: '2023-09-15',
         appointmentTime: '10:00 AM',
+        address: "Mella street #6, New York",
         status: 'Confirmed',
         transactionId: "#RE20210603",
         price: 100

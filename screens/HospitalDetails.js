@@ -13,7 +13,7 @@ import MapCard from '../components/MapCard'
 import AvailableDoctorTime from '../components/AvailableDoctorTime'
 
 const AboutRoute = () => (
-    <ScrollView style={{ flex: 1, backgroundColor: COLORS.white, padding: 12 }}>
+    <ScrollView style={{ flex: 1, backgroundColor: COLORS.white, padding: 12, marginBottom: 60 }}>
         <Text style={styles.h4}>About</Text>
         <Text style={styles.description}>Serenity Wellness Hospital is a tranquil oasis of healing nestled amidst lush greenery.From serene meditation gardens to soothing treatment rooms,
             every corner of our hospital is thoughtfully crafted to foster serenity and
